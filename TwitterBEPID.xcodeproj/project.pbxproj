@@ -15,6 +15,22 @@
 		81113A641A8FB4D700F07E78 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 81113A631A8FB4D700F07E78 /* Images.xcassets */; };
 		81113A671A8FB4D700F07E78 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81113A651A8FB4D700F07E78 /* LaunchScreen.xib */; };
 		81113A731A8FB4D700F07E78 /* TwitterBEPIDTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 81113A721A8FB4D700F07E78 /* TwitterBEPIDTests.m */; };
+		81113A811A8FB59A00F07E78 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81113A7F1A8FB59A00F07E78 /* Bolts.framework */; };
+		81113A821A8FB59A00F07E78 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81113A801A8FB59A00F07E78 /* Parse.framework */; };
+		81113A881A8FB5F300F07E78 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 81113A871A8FB5F300F07E78 /* libsqlite3.dylib */; };
+		81113A8A1A8FB5FB00F07E78 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 81113A891A8FB5FB00F07E78 /* libz.dylib */; };
+		81113A8C1A8FB60400F07E78 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81113A8B1A8FB60400F07E78 /* SystemConfiguration.framework */; };
+		81113A8E1A8FB60900F07E78 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81113A8D1A8FB60900F07E78 /* StoreKit.framework */; };
+		81113A901A8FB61200F07E78 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81113A8F1A8FB61200F07E78 /* Security.framework */; };
+		81113A921A8FB62200F07E78 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81113A911A8FB62200F07E78 /* QuartzCore.framework */; };
+		81113A941A8FB62900F07E78 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81113A931A8FB62900F07E78 /* MobileCoreServices.framework */; };
+		81113A961A8FB63000F07E78 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81113A951A8FB63000F07E78 /* CoreLocation.framework */; };
+		81113A981A8FB63800F07E78 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81113A971A8FB63800F07E78 /* CoreGraphics.framework */; };
+		81113A991A8FB64000F07E78 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81113A851A8FB5DF00F07E78 /* CFNetwork.framework */; };
+		81113A9A1A8FB64600F07E78 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81113A831A8FB5BA00F07E78 /* AudioToolbox.framework */; };
+		81113A9D1A8FB83700F07E78 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81113A9B1A8FB83700F07E78 /* Login.storyboard */; };
+		81113AA31A8FB9D600F07E78 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81113AA21A8FB9D600F07E78 /* LoginViewController.m */; };
+		81113AA61A8FB9E700F07E78 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81113AA51A8FB9E700F07E78 /* RegisterViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +59,24 @@
 		81113A6C1A8FB4D700F07E78 /* TwitterBEPIDTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TwitterBEPIDTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		81113A711A8FB4D700F07E78 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		81113A721A8FB4D700F07E78 /* TwitterBEPIDTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TwitterBEPIDTests.m; sourceTree = "<group>"; };
+		81113A7F1A8FB59A00F07E78 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
+		81113A801A8FB59A00F07E78 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
+		81113A831A8FB5BA00F07E78 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		81113A851A8FB5DF00F07E78 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		81113A871A8FB5F300F07E78 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		81113A891A8FB5FB00F07E78 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		81113A8B1A8FB60400F07E78 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		81113A8D1A8FB60900F07E78 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		81113A8F1A8FB61200F07E78 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		81113A911A8FB62200F07E78 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		81113A931A8FB62900F07E78 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		81113A951A8FB63000F07E78 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		81113A971A8FB63800F07E78 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		81113A9C1A8FB83700F07E78 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Login.storyboard; sourceTree = "<group>"; };
+		81113AA11A8FB9D600F07E78 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginViewController.h; path = Controller/LoginViewController.h; sourceTree = "<group>"; };
+		81113AA21A8FB9D600F07E78 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginViewController.m; path = Controller/LoginViewController.m; sourceTree = "<group>"; };
+		81113AA41A8FB9E700F07E78 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RegisterViewController.h; path = Controller/RegisterViewController.h; sourceTree = "<group>"; };
+		81113AA51A8FB9E700F07E78 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RegisterViewController.m; path = Controller/RegisterViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,6 +84,19 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				81113A9A1A8FB64600F07E78 /* AudioToolbox.framework in Frameworks */,
+				81113A991A8FB64000F07E78 /* CFNetwork.framework in Frameworks */,
+				81113A981A8FB63800F07E78 /* CoreGraphics.framework in Frameworks */,
+				81113A961A8FB63000F07E78 /* CoreLocation.framework in Frameworks */,
+				81113A941A8FB62900F07E78 /* MobileCoreServices.framework in Frameworks */,
+				81113A921A8FB62200F07E78 /* QuartzCore.framework in Frameworks */,
+				81113A901A8FB61200F07E78 /* Security.framework in Frameworks */,
+				81113A8E1A8FB60900F07E78 /* StoreKit.framework in Frameworks */,
+				81113A8C1A8FB60400F07E78 /* SystemConfiguration.framework in Frameworks */,
+				81113A8A1A8FB5FB00F07E78 /* libz.dylib in Frameworks */,
+				81113A881A8FB5F300F07E78 /* libsqlite3.dylib in Frameworks */,
+				81113A821A8FB59A00F07E78 /* Parse.framework in Frameworks */,
+				81113A811A8FB59A00F07E78 /* Bolts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,6 +115,7 @@
 			children = (
 				81113A521A8FB4D700F07E78 /* TwitterBEPID */,
 				81113A6F1A8FB4D700F07E78 /* TwitterBEPIDTests */,
+				81113A7E1A8FB56900F07E78 /* Frameworks */,
 				81113A511A8FB4D700F07E78 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -86,12 +134,14 @@
 			children = (
 				81113A571A8FB4D700F07E78 /* AppDelegate.h */,
 				81113A581A8FB4D700F07E78 /* AppDelegate.m */,
+				81113A631A8FB4D700F07E78 /* Images.xcassets */,
+				81113AA01A8FB98D00F07E78 /* Model */,
+				81113A9E1A8FB94A00F07E78 /* View */,
+				81113A9F1A8FB98200F07E78 /* Controller */,
 				81113A5A1A8FB4D700F07E78 /* FirstViewController.h */,
 				81113A5B1A8FB4D700F07E78 /* FirstViewController.m */,
 				81113A5D1A8FB4D700F07E78 /* SecondViewController.h */,
 				81113A5E1A8FB4D700F07E78 /* SecondViewController.m */,
-				81113A601A8FB4D700F07E78 /* Main.storyboard */,
-				81113A631A8FB4D700F07E78 /* Images.xcassets */,
 				81113A651A8FB4D700F07E78 /* LaunchScreen.xib */,
 				81113A531A8FB4D700F07E78 /* Supporting Files */,
 			);
@@ -122,6 +172,53 @@
 				81113A711A8FB4D700F07E78 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		81113A7E1A8FB56900F07E78 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				81113A971A8FB63800F07E78 /* CoreGraphics.framework */,
+				81113A951A8FB63000F07E78 /* CoreLocation.framework */,
+				81113A931A8FB62900F07E78 /* MobileCoreServices.framework */,
+				81113A911A8FB62200F07E78 /* QuartzCore.framework */,
+				81113A8F1A8FB61200F07E78 /* Security.framework */,
+				81113A8D1A8FB60900F07E78 /* StoreKit.framework */,
+				81113A8B1A8FB60400F07E78 /* SystemConfiguration.framework */,
+				81113A891A8FB5FB00F07E78 /* libz.dylib */,
+				81113A871A8FB5F300F07E78 /* libsqlite3.dylib */,
+				81113A851A8FB5DF00F07E78 /* CFNetwork.framework */,
+				81113A831A8FB5BA00F07E78 /* AudioToolbox.framework */,
+				81113A801A8FB59A00F07E78 /* Parse.framework */,
+				81113A7F1A8FB59A00F07E78 /* Bolts.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		81113A9E1A8FB94A00F07E78 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				81113A9B1A8FB83700F07E78 /* Login.storyboard */,
+				81113A601A8FB4D700F07E78 /* Main.storyboard */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		81113A9F1A8FB98200F07E78 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				81113AA11A8FB9D600F07E78 /* LoginViewController.h */,
+				81113AA21A8FB9D600F07E78 /* LoginViewController.m */,
+				81113AA41A8FB9E700F07E78 /* RegisterViewController.h */,
+				81113AA51A8FB9E700F07E78 /* RegisterViewController.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		81113AA01A8FB98D00F07E78 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -204,6 +301,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				81113A9D1A8FB83700F07E78 /* Login.storyboard in Resources */,
 				81113A621A8FB4D700F07E78 /* Main.storyboard in Resources */,
 				81113A671A8FB4D700F07E78 /* LaunchScreen.xib in Resources */,
 				81113A641A8FB4D700F07E78 /* Images.xcassets in Resources */,
@@ -225,9 +323,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				81113A5F1A8FB4D700F07E78 /* SecondViewController.m in Sources */,
+				81113AA61A8FB9E700F07E78 /* RegisterViewController.m in Sources */,
 				81113A591A8FB4D700F07E78 /* AppDelegate.m in Sources */,
 				81113A5C1A8FB4D700F07E78 /* FirstViewController.m in Sources */,
 				81113A561A8FB4D700F07E78 /* main.m in Sources */,
+				81113AA31A8FB9D600F07E78 /* LoginViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -264,6 +364,14 @@
 				81113A661A8FB4D700F07E78 /* Base */,
 			);
 			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+		81113A9B1A8FB83700F07E78 /* Login.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				81113A9C1A8FB83700F07E78 /* Base */,
+			);
+			name = Login.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -349,6 +457,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = TwitterBEPID/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -359,6 +471,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = TwitterBEPID/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
