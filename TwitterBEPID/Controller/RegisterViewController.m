@@ -7,7 +7,7 @@
 //
 
 #import "RegisterViewController.h"
-#import <Parse/Parse.h>
+#import "RegisterUser.h"
 
 @interface RegisterViewController ()
 
@@ -19,16 +19,18 @@
 
 - (IBAction)finishButtonPressed:(UIButton *)sender {
     
-    PFObject *registerUser = [PFObject objectWithClassName:@"User"];
-    registerUser[@"userName"] = @"rodrigoandrade";
-    registerUser[@"fullName"] = @"Rodrigo S Andrade";
-    registerUser[@"email"] = @"rodrigo.andrade@me.com";
-    registerUser[@"description"] = @"Aluno no BEPiD";
-    registerUser[@"location"] = @"Porto Alegre/RS";
-    registerUser[@"url"] = @"http://www.devmac.com.br";
+    RegisterUser *registerUser = [[RegisterUser alloc] init];
+    registerUser.username = @"rodrigoandrade";
+    registerUser.fullName = @"Rodrigo S Andrade";
+    registerUser.email = @"rodrigo.andrade@me.com";
+    registerUser.about = @"Aluno no BEPiD";
+    registerUser.location = @"Porto Alegre/RS";
+    registerUser.url = @"http://www.devmac.com.br";
+    registerUser.password = @"12345";
+    
     [registerUser saveInBackground];
     
-//    [self dismissViewControllerAnimated:YES completion:nil];
+    [self dismissViewControllerAnimated:YES completion:nil];
     
 }
 

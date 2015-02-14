@@ -31,6 +31,7 @@
 		81113A9D1A8FB83700F07E78 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81113A9B1A8FB83700F07E78 /* Login.storyboard */; };
 		81113AA31A8FB9D600F07E78 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81113AA21A8FB9D600F07E78 /* LoginViewController.m */; };
 		81113AA61A8FB9E700F07E78 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81113AA51A8FB9E700F07E78 /* RegisterViewController.m */; };
+		81113AA91A8FC5B800F07E78 /* RegisterUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 81113AA81A8FC5B800F07E78 /* RegisterUser.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +78,8 @@
 		81113AA21A8FB9D600F07E78 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginViewController.m; path = Controller/LoginViewController.m; sourceTree = "<group>"; };
 		81113AA41A8FB9E700F07E78 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RegisterViewController.h; path = Controller/RegisterViewController.h; sourceTree = "<group>"; };
 		81113AA51A8FB9E700F07E78 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RegisterViewController.m; path = Controller/RegisterViewController.m; sourceTree = "<group>"; };
+		81113AA71A8FC5B800F07E78 /* RegisterUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RegisterUser.h; path = Model/RegisterUser.h; sourceTree = "<group>"; };
+		81113AA81A8FC5B800F07E78 /* RegisterUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RegisterUser.m; path = Model/RegisterUser.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -217,6 +220,8 @@
 		81113AA01A8FB98D00F07E78 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				81113AA71A8FC5B800F07E78 /* RegisterUser.h */,
+				81113AA81A8FC5B800F07E78 /* RegisterUser.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -327,6 +332,7 @@
 				81113A591A8FB4D700F07E78 /* AppDelegate.m in Sources */,
 				81113A5C1A8FB4D700F07E78 /* FirstViewController.m in Sources */,
 				81113A561A8FB4D700F07E78 /* main.m in Sources */,
+				81113AA91A8FC5B800F07E78 /* RegisterUser.m in Sources */,
 				81113AA31A8FB9D600F07E78 /* LoginViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
