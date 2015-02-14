@@ -7,12 +7,32 @@
 //
 
 #import "RegisterViewController.h"
+#import <Parse/Parse.h>
 
 @interface RegisterViewController ()
 
 @end
 
 @implementation RegisterViewController
+
+#pragma mark - Methods of UIButton (IBAction)
+
+- (IBAction)finishButtonPressed:(UIButton *)sender {
+    
+    PFObject *registerUser = [PFObject objectWithClassName:@"User"];
+    registerUser[@"userName"] = @"rodrigoandrade";
+    registerUser[@"fullName"] = @"Rodrigo S Andrade";
+    registerUser[@"email"] = @"rodrigo.andrade@me.com";
+    registerUser[@"description"] = @"Aluno no BEPiD";
+    registerUser[@"location"] = @"Porto Alegre/RS";
+    registerUser[@"url"] = @"http://www.devmac.com.br";
+    [registerUser saveInBackground];
+    
+//    [self dismissViewControllerAnimated:YES completion:nil];
+    
+}
+
+#pragma mark - Methods of this ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

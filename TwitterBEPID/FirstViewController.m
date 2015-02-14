@@ -14,9 +14,17 @@
 
 @implementation FirstViewController
 
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Login" bundle:nil];
+    UIViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"login"];
+    [self presentViewController:vc animated:YES completion:nil];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
 }
 
 - (void)didReceiveMemoryWarning {

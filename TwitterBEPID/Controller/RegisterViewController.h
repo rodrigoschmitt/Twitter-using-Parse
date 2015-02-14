@@ -10,4 +10,6 @@
 
 @interface RegisterViewController : UIViewController
 
+- (IBAction)finishButtonPressed:(UIButton *)sender;
+
 @end
