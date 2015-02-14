@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface RegisterUser : NSObject
+@interface User : NSObject
 
 @property (strong, nonatomic) NSString *username;
 @property (strong, nonatomic) NSString *fullName;
@@ -18,6 +18,6 @@
 @property (strong, nonatomic) NSString *url;
 @property (strong, nonatomic) NSString *password;
 
-- (void)saveInBackground;
+- (void)registerUser;
 
 @end

@@ -12,4 +12,14 @@
 
 - (IBAction)finishButtonPressed:(UIButton *)sender;
 
+@property (weak, nonatomic) IBOutlet UIImageView *imgProfile;
+@property (weak, nonatomic) IBOutlet UITextField *txtEmail;
+@property (weak, nonatomic) IBOutlet UITextField *txtUserName;
+@property (weak, nonatomic) IBOutlet UITextField *txtPassword;
+@property (weak, nonatomic) IBOutlet UITextField *txtFullName;
+@property (weak, nonatomic) IBOutlet UITextField *txtLocation;
+@property (weak, nonatomic) IBOutlet UITextField *txtAbout;
+@property (weak, nonatomic) IBOutlet UITextField *txtUrl;
+
+
 @end

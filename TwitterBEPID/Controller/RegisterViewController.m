@@ -7,7 +7,7 @@
 //
 
 #import "RegisterViewController.h"
-#import "RegisterUser.h"
+#import "User.h"
 
 @interface RegisterViewController ()
 
@@ -19,16 +19,16 @@
 
 - (IBAction)finishButtonPressed:(UIButton *)sender {
     
-    RegisterUser *registerUser = [[RegisterUser alloc] init];
-    registerUser.username = @"rodrigoandrade";
-    registerUser.fullName = @"Rodrigo S Andrade";
-    registerUser.email = @"rodrigo.andrade@me.com";
-    registerUser.about = @"Aluno no BEPiD";
-    registerUser.location = @"Porto Alegre/RS";
-    registerUser.url = @"http://www.devmac.com.br";
-    registerUser.password = @"12345";
+    User *user = [[User alloc] init];
+    user.username = self.txtUserName.text;
+    user.fullName = self.txtFullName.text;
+    user.email = self.txtEmail.text;
+    user.about = self.txtAbout.text;
+    user.location = self.txtLocation.text;
+    user.url = self.txtUrl.text;
+    user.password = self.txtPassword.text;
     
-    [registerUser saveInBackground];
+    [user registerUser];
     
     [self dismissViewControllerAnimated:YES completion:nil];
     
