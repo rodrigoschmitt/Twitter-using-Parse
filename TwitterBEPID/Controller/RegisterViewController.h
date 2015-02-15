@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RegisterViewController : UIViewController
+@interface RegisterViewController : UIViewController <UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
@@ -23,6 +23,7 @@
 
 - (IBAction)nextButtonPressed:(UIButton *)sender;
 - (IBAction)finishButtonPressed:(UIButton *)sender;
+- (IBAction)profileImageButtonPressed:(UIButton *)sender;
 
 
 @end

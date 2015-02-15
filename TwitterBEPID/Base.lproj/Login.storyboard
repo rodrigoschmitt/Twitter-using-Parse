@@ -114,7 +114,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5Am-5X-c65">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Am-5X-c65">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cjL-YW-pbn">
@@ -198,14 +198,6 @@
                                             <action selector="finishButtonPressed:" destination="4lt-cb-prE" eventType="touchUpInside" id="fTb-kg-4NA"/>
                                         </connections>
                                     </button>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HOY-w8-aWo">
-                                        <rect key="frame" x="208" y="28" width="182" height="182"/>
-                                        <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="182" id="rAn-57-Ip6"/>
-                                            <constraint firstAttribute="height" constant="182" id="sCZ-65-bqV"/>
-                                        </constraints>
-                                    </imageView>
                                     <textField opaque="NO" clipsSubviews="YES" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Url" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="j7d-Pz-kKI">
                                         <rect key="frame" x="173" y="333" width="254" height="30"/>
                                         <constraints>
@@ -218,25 +210,48 @@
                                             <outlet property="delegate" destination="4lt-cb-prE" id="Suk-5b-6a6"/>
                                         </connections>
                                     </textField>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ProfileImage" translatesAutoresizingMaskIntoConstraints="NO" id="PXe-Md-tT0">
+                                        <rect key="frame" x="209" y="28" width="183" height="184"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M3v-u2-CqD">
+                                        <rect key="frame" x="209" y="28" width="183" height="184"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="183" id="gQY-iA-d69"/>
+                                            <constraint firstAttribute="height" constant="184" id="hfa-n1-DFR"/>
+                                        </constraints>
+                                        <state key="normal">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="profileImageButtonPressed:" destination="4lt-cb-prE" eventType="touchUpInside" id="YNc-WO-lU5"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="PXe-Md-tT0" firstAttribute="centerY" secondItem="M3v-u2-CqD" secondAttribute="centerY" id="2x6-wR-lLh"/>
+                                    <constraint firstAttribute="trailing" secondItem="cjL-YW-pbn" secondAttribute="trailing" constant="173" id="3bc-7F-bcY"/>
                                     <constraint firstItem="41f-jG-hLi" firstAttribute="top" secondItem="j7d-Pz-kKI" secondAttribute="bottom" constant="8" id="5dH-ce-PBm"/>
+                                    <constraint firstAttribute="centerX" secondItem="M3v-u2-CqD" secondAttribute="centerX" constant="-0.5" id="5ys-bL-PMS"/>
                                     <constraint firstItem="j7d-Pz-kKI" firstAttribute="centerX" secondItem="Rpi-x7-iFz" secondAttribute="centerX" id="6jw-0U-HEa"/>
+                                    <constraint firstItem="PXe-Md-tT0" firstAttribute="width" secondItem="M3v-u2-CqD" secondAttribute="width" id="9aC-gX-3cU"/>
                                     <constraint firstItem="2GE-YJ-CbS" firstAttribute="centerX" secondItem="kyA-WB-GzS" secondAttribute="centerX" id="Crh-We-8HZ"/>
+                                    <constraint firstItem="PXe-Md-tT0" firstAttribute="height" secondItem="M3v-u2-CqD" secondAttribute="height" id="Eyp-el-1iU"/>
                                     <constraint firstItem="gQO-Ka-fsq" firstAttribute="centerX" secondItem="Rpi-x7-iFz" secondAttribute="centerX" constant="-1" id="G6E-kz-aC9"/>
-                                    <constraint firstItem="HOY-w8-aWo" firstAttribute="top" secondItem="5Am-5X-c65" secondAttribute="top" constant="28" id="HG9-eS-3IZ"/>
+                                    <constraint firstItem="M3v-u2-CqD" firstAttribute="top" secondItem="5Am-5X-c65" secondAttribute="top" constant="28" id="Jbp-N5-GXY"/>
+                                    <constraint firstItem="PXe-Md-tT0" firstAttribute="centerX" secondItem="M3v-u2-CqD" secondAttribute="centerX" id="MDg-Bv-yCK"/>
                                     <constraint firstItem="kKE-Mq-ge2" firstAttribute="top" secondItem="kyA-WB-GzS" secondAttribute="bottom" constant="8" id="OSm-8W-Tbo"/>
-                                    <constraint firstItem="cjL-YW-pbn" firstAttribute="top" secondItem="HOY-w8-aWo" secondAttribute="bottom" constant="8" id="TWo-1o-aO1"/>
                                     <constraint firstItem="41f-jG-hLi" firstAttribute="centerX" secondItem="j7d-Pz-kKI" secondAttribute="centerX" constant="-1" id="Tfk-MG-ZUj"/>
                                     <constraint firstItem="gQO-Ka-fsq" firstAttribute="top" secondItem="cjL-YW-pbn" secondAttribute="bottom" constant="8" id="fzS-t5-EJj"/>
-                                    <constraint firstAttribute="centerX" secondItem="HOY-w8-aWo" secondAttribute="centerX" constant="1" id="gSc-hk-zdo"/>
                                     <constraint firstItem="Rpi-x7-iFz" firstAttribute="top" secondItem="gQO-Ka-fsq" secondAttribute="bottom" constant="9" id="iNM-1W-gA8"/>
-                                    <constraint firstItem="cjL-YW-pbn" firstAttribute="centerX" secondItem="HOY-w8-aWo" secondAttribute="centerX" constant="1" id="jYX-qD-DXN"/>
+                                    <constraint firstItem="cjL-YW-pbn" firstAttribute="centerX" secondItem="M3v-u2-CqD" secondAttribute="centerX" id="k6I-7e-oPK"/>
+                                    <constraint firstItem="M3v-u2-CqD" firstAttribute="centerY" secondItem="cjL-YW-pbn" secondAttribute="centerY" constant="-113" id="kaB-jq-zr6"/>
+                                    <constraint firstAttribute="bottom" secondItem="kKE-Mq-ge2" secondAttribute="bottom" constant="85" id="qmn-ZH-Of4"/>
                                     <constraint firstItem="41f-jG-hLi" firstAttribute="centerX" secondItem="2GE-YJ-CbS" secondAttribute="centerX" constant="-1" id="rnn-cY-RIC"/>
                                     <constraint firstItem="2GE-YJ-CbS" firstAttribute="top" secondItem="41f-jG-hLi" secondAttribute="bottom" constant="8" id="rp9-ag-fh6"/>
                                     <constraint firstItem="kyA-WB-GzS" firstAttribute="top" secondItem="2GE-YJ-CbS" secondAttribute="bottom" constant="8" id="tqU-LX-gBe"/>
                                     <constraint firstItem="cjL-YW-pbn" firstAttribute="centerX" secondItem="gQO-Ka-fsq" secondAttribute="centerX" constant="1" id="ugc-co-EqX"/>
                                     <constraint firstItem="j7d-Pz-kKI" firstAttribute="top" secondItem="Rpi-x7-iFz" secondAttribute="bottom" constant="8" id="vIZ-RX-dPz"/>
+                                    <constraint firstItem="cjL-YW-pbn" firstAttribute="top" secondItem="M3v-u2-CqD" secondAttribute="bottom" constant="6" id="wGL-MX-hfZ"/>
                                     <constraint firstItem="kKE-Mq-ge2" firstAttribute="centerX" secondItem="kyA-WB-GzS" secondAttribute="centerX" constant="0.5" id="yjn-TY-xld"/>
                                 </constraints>
                             </scrollView>
@@ -250,7 +265,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="imgProfile" destination="HOY-w8-aWo" id="q3a-Qh-MxR"/>
+                        <outlet property="imgProfile" destination="PXe-Md-tT0" id="VIc-Qd-HnH"/>
                         <outlet property="scrollView" destination="5Am-5X-c65" id="uxl-8Z-LeU"/>
                         <outlet property="txtAbout" destination="2GE-YJ-CbS" id="CCs-aX-FH9"/>
                         <outlet property="txtEmail" destination="cjL-YW-pbn" id="1Tx-zM-c8u"/>
@@ -267,6 +282,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="ProfileImage" width="183" height="184"/>
         <image name="Twitter_logo_blue" width="254" height="254"/>
     </resources>
 </document>

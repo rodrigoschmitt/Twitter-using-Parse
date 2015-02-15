@@ -50,7 +50,36 @@
     
 }
 
-#pragma mark - Custom Methods
+- (IBAction)profileImageButtonPressed:(UIButton *)sender {
+    UIActionSheet *actionButtonActionSheet = [[UIActionSheet alloc] initWithTitle:nil
+                                                                         delegate:self
+                                                                cancelButtonTitle:@"Cancel"
+                                                           destructiveButtonTitle:nil
+                                                                otherButtonTitles:@"Take photo", @"Choose existing", nil];
+    [actionButtonActionSheet showInView:self.view];
+}
+
+#pragma mark - Methods for Profile Image
+
+- (void)takePhoto {
+    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+    picker.delegate = self;
+    picker.allowsEditing = YES;
+    picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+    
+    [self presentViewController:picker animated:YES completion:NULL];
+}
+
+- (void)chooseExistingPhoto {
+    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+    picker.delegate = self;
+    picker.allowsEditing = YES;
+    picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    
+    [self presentViewController:picker animated:YES completion:NULL];
+}
+
+#pragma mark - Methods for Show or Hidden Keyboard
 
 - (void)keyboardWasShown {
    [_scrollView setContentOffset:CGPointMake(0.0, _activeField.frame.origin.y - kOFFSET_FOR_KEYBOARD) animated:YES];
@@ -65,6 +94,35 @@
     [_activeField resignFirstResponder];
     
     [self keyboardWillBeHidden];
+}
+
+#pragma mark - Methods of UIImagePickerController (Delegate)
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+    
+    UIImage *chosenImage = info[UIImagePickerControllerEditedImage];
+    self.imgProfile.image = chosenImage;
+    
+    [picker dismissViewControllerAnimated:YES completion:NULL];
+    
+}
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
+    
+    [picker dismissViewControllerAnimated:YES completion:NULL];
+    
+}
+
+#pragma mark - UIActionSheet (Delegate)
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 0) {
+        [self takePhoto];
+    }
+    else if (buttonIndex == 1) {
+        [self chooseExistingPhoto];
+    }
 }
 
 #pragma mark - UITextField (Delegate)
@@ -85,6 +143,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.imgProfile.layer.cornerRadius = self.imgProfile.frame.size.width / 2;
+    self.imgProfile.clipsToBounds = YES;
+    self.imgProfile.layer.borderWidth = 3.0f;
+    self.imgProfile.layer.borderColor = [UIColor grayColor].CGColor;
+
     
     UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(resignOnTap:)];
     [singleTap setNumberOfTapsRequired:1];
