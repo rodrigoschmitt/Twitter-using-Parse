@@ -148,7 +148,6 @@
 				81113A5B1A8FB4D700F07E78 /* FirstViewController.m */,
 				81113A5D1A8FB4D700F07E78 /* SecondViewController.h */,
 				81113A5E1A8FB4D700F07E78 /* SecondViewController.m */,
-				81113A651A8FB4D700F07E78 /* LaunchScreen.xib */,
 				81113A531A8FB4D700F07E78 /* Supporting Files */,
 			);
 			path = TwitterBEPID;
@@ -203,6 +202,7 @@
 		81113A9E1A8FB94A00F07E78 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				81113A651A8FB4D700F07E78 /* LaunchScreen.xib */,
 				81113A9B1A8FB83700F07E78 /* Login.storyboard */,
 				81113A601A8FB4D700F07E78 /* Main.storyboard */,
 			);

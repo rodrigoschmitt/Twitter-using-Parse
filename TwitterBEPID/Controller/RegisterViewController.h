@@ -10,8 +10,6 @@
 
 @interface RegisterViewController : UIViewController
 
-- (IBAction)finishButtonPressed:(UIButton *)sender;
-
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
 @property (weak, nonatomic) IBOutlet UIImageView *imgProfile;
@@ -22,6 +20,9 @@
 @property (weak, nonatomic) IBOutlet UITextField *txtLocation;
 @property (weak, nonatomic) IBOutlet UITextField *txtAbout;
 @property (weak, nonatomic) IBOutlet UITextField *txtUrl;
+
+- (IBAction)nextButtonPressed:(UIButton *)sender;
+- (IBAction)finishButtonPressed:(UIButton *)sender;
 
 
 @end

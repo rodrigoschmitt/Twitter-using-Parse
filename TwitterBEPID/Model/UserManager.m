@@ -12,6 +12,30 @@
 
 @implementation UserManager
 
+- (void)loginUser:(User *)_user {
+    
+    PFQuery *query = [PFQuery queryWithClassName:@"User"];
+    [query whereKey:@"userName" equalTo:_user.username];
+    [query whereKey:@"password" equalTo:_user.password];
+    [query getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
+        if (!object) {
+            NSLog(@"The getFirstObject request failed.");
+        } else {
+            // The find succeeded.
+            NSLog(@"Successfully retrieved the object.");
+            
+            _user.fullName = [object objectForKey:@"fullName"];
+            _user.email = [object objectForKey:@"email"];
+            _user.about = [object objectForKey:@"description"];
+            _user.location = [object objectForKey:@"location"];
+            _user.url = [object objectForKey:@"url"];
+            
+            NSLog(@"User content: %@", _user);
+        }
+    }];
+    
+}
+
 - (void)registerUser:(User *)_user {
     
     PFObject *registerUserObj = [PFObject objectWithClassName:@"User"];

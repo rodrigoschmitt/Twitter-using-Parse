@@ -12,6 +12,7 @@
 
 @interface UserManager : NSObject
 
+- (void)loginUser:(User *)_user;
 - (void)registerUser:(User *)_user;
 
 @end

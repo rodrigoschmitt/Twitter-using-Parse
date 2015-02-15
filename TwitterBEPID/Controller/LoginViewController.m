@@ -7,16 +7,76 @@
 //
 
 #import "LoginViewController.h"
+#import "UserManager.h"
+#import "User.h"
+
+#define kOFFSET_FOR_KEYBOARD 200.0
 
 @interface LoginViewController ()
+
+@property UITextField *activeField;
 
 @end
 
 @implementation LoginViewController
 
+#pragma mark - Methods of UIButton (IBAction)
+
+- (IBAction)nextButtonPressed:(UIButton *)sender {
+    [self.txtPassword becomeFirstResponder];
+}
+
+- (IBAction)loginButtonPressed:(UIButton *)sender {
+    
+    User *user = [[User alloc] init];
+    user.username = self.txtUsername.text;
+    user.password = self.txtPassword.text;
+    
+    UserManager *userManager = [[UserManager alloc] init];
+    [userManager loginUser:user];
+    
+}
+
+#pragma mark - Custom Methods
+
+- (void)keyboardWasShown {
+    [_scrollView setContentOffset:CGPointMake(0.0, _activeField.frame.origin.y - kOFFSET_FOR_KEYBOARD) animated:YES];
+}
+
+- (void)keyboardWillBeHidden
+{
+    [_scrollView setContentOffset:CGPointMake(0.0, 0.0) animated:YES];
+}
+
+- (void)resignOnTap:(id)iSender {
+    [_activeField resignFirstResponder];
+    
+    [self keyboardWillBeHidden];
+}
+
+#pragma mark - UITextField (Delegate)
+
+- (void)textFieldDidBeginEditing:(UITextField *)textField
+{
+    _activeField = textField;
+    
+    [self keyboardWasShown];
+}
+
+- (void)textFieldDidEndEditing:(UITextField *)textField
+{
+    _activeField = nil;
+}
+
+#pragma mark - Methods of this ViewController
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(resignOnTap:)];
+    [singleTap setNumberOfTapsRequired:1];
+    [singleTap setNumberOfTouchesRequired:1];
+    [self.view addGestureRecognizer:singleTap];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -33,5 +93,6 @@
     // Pass the selected object to the new view controller.
 }
 */
+
 
 @end

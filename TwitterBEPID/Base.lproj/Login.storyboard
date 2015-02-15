@@ -17,56 +17,86 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Oao-xP-LhX">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="271"/>
-                            </imageView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5fH-Tt-5kS">
-                                <rect key="frame" x="173" y="300" width="254" height="30"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Lgb-AJ-DAG">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Twitter_logo_blue" translatesAutoresizingMaskIntoConstraints="NO" id="Oao-xP-LhX">
+                                        <rect key="frame" x="173" y="23" width="254" height="254"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="254" id="eE3-HM-6CE"/>
+                                            <constraint firstAttribute="height" constant="254" id="mWB-tq-Gdi"/>
+                                        </constraints>
+                                    </imageView>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5fH-Tt-5kS">
+                                        <rect key="frame" x="173" y="285" width="254" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="254" id="0lY-Kr-NS9"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <action selector="nextButtonPressed:" destination="H8q-Wi-Jcn" eventType="editingDidEndOnExit" id="8JL-o8-lNK"/>
+                                            <outlet property="delegate" destination="H8q-Wi-Jcn" id="ny6-KV-R70"/>
+                                        </connections>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vdc-Xc-ahl">
+                                        <rect key="frame" x="173" y="323" width="254" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="254" id="LoM-bu-rly"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="go" secureTextEntry="YES"/>
+                                        <connections>
+                                            <action selector="loginButtonPressed:" destination="H8q-Wi-Jcn" eventType="editingDidEndOnExit" id="ZkN-uF-7dm"/>
+                                            <outlet property="delegate" destination="H8q-Wi-Jcn" id="bte-h1-oJc"/>
+                                        </connections>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F7M-KU-VTE">
+                                        <rect key="frame" x="272" y="374" width="56" height="30"/>
+                                        <state key="normal" title="SIGN IN">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="loginButtonPressed:" destination="H8q-Wi-Jcn" eventType="touchUpInside" id="2fo-PY-qdk"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="An4-Ft-R5y">
+                                        <rect key="frame" x="232" y="422" width="136" height="30"/>
+                                        <state key="normal" title="CREATE ACCOUNT">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="4lt-cb-prE" kind="presentation" id="jGn-k6-W6N"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="254" id="aO0-75-PwJ"/>
+                                    <constraint firstItem="5fH-Tt-5kS" firstAttribute="top" secondItem="Oao-xP-LhX" secondAttribute="bottom" constant="8" id="1cp-Y2-29P"/>
+                                    <constraint firstItem="An4-Ft-R5y" firstAttribute="top" secondItem="F7M-KU-VTE" secondAttribute="bottom" constant="18" id="750-Z1-OfQ"/>
+                                    <constraint firstItem="vdc-Xc-ahl" firstAttribute="centerX" secondItem="5fH-Tt-5kS" secondAttribute="centerX" id="7pU-k2-g33"/>
+                                    <constraint firstItem="An4-Ft-R5y" firstAttribute="centerX" secondItem="F7M-KU-VTE" secondAttribute="centerX" id="8Mi-HY-uvi"/>
+                                    <constraint firstItem="Oao-xP-LhX" firstAttribute="top" secondItem="Lgb-AJ-DAG" secondAttribute="top" constant="23" id="Abx-f8-5uj"/>
+                                    <constraint firstAttribute="centerX" secondItem="Oao-xP-LhX" secondAttribute="centerX" id="R1o-cy-C23"/>
+                                    <constraint firstItem="vdc-Xc-ahl" firstAttribute="top" secondItem="5fH-Tt-5kS" secondAttribute="bottom" constant="8" id="TpP-2j-lpZ"/>
+                                    <constraint firstItem="5fH-Tt-5kS" firstAttribute="centerX" secondItem="Oao-xP-LhX" secondAttribute="centerX" id="tzd-kK-ae3"/>
+                                    <constraint firstItem="vdc-Xc-ahl" firstAttribute="centerX" secondItem="F7M-KU-VTE" secondAttribute="centerX" id="xGQ-cA-yqK"/>
+                                    <constraint firstItem="F7M-KU-VTE" firstAttribute="top" secondItem="vdc-Xc-ahl" secondAttribute="bottom" constant="21" id="zGH-WD-SW9"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vdc-Xc-ahl">
-                                <rect key="frame" x="173" y="358" width="254" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="An4-Ft-R5y">
-                                <rect key="frame" x="232" y="523" width="136" height="30"/>
-                                <state key="normal" title="CREATE ACCOUNT">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="4lt-cb-prE" kind="presentation" id="jGn-k6-W6N"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F7M-KU-VTE">
-                                <rect key="frame" x="272" y="407" width="56" height="30"/>
-                                <state key="normal" title="SIGN IN">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Oao-xP-LhX" firstAttribute="leading" secondItem="qc7-PP-GqK" secondAttribute="leadingMargin" constant="-16" id="6Bo-cv-G26"/>
-                            <constraint firstAttribute="centerX" secondItem="5fH-Tt-5kS" secondAttribute="centerX" id="GyC-ik-7QO"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Oao-xP-LhX" secondAttribute="trailing" constant="-16" id="N31-eM-b27"/>
-                            <constraint firstItem="5fH-Tt-5kS" firstAttribute="centerX" secondItem="vdc-Xc-ahl" secondAttribute="centerX" id="V3j-BB-KFT"/>
-                            <constraint firstItem="F7M-KU-VTE" firstAttribute="centerX" secondItem="vdc-Xc-ahl" secondAttribute="centerX" id="Vj5-66-bFQ"/>
-                            <constraint firstAttribute="centerY" secondItem="F7M-KU-VTE" secondAttribute="centerY" constant="-122" id="XP0-8d-R5h"/>
-                            <constraint firstItem="An4-Ft-R5y" firstAttribute="top" secondItem="F7M-KU-VTE" secondAttribute="bottom" constant="86" id="YfG-Mx-XRp"/>
-                            <constraint firstAttribute="centerY" secondItem="5fH-Tt-5kS" secondAttribute="centerY" constant="-15" id="auZ-C5-Tar"/>
-                            <constraint firstItem="5fH-Tt-5kS" firstAttribute="top" secondItem="Oao-xP-LhX" secondAttribute="bottom" constant="29" id="elX-w8-Ibm"/>
-                            <constraint firstItem="5fH-Tt-5kS" firstAttribute="width" secondItem="vdc-Xc-ahl" secondAttribute="width" id="fC2-DB-3gT"/>
-                            <constraint firstItem="vdc-Xc-ahl" firstAttribute="top" secondItem="5fH-Tt-5kS" secondAttribute="bottom" constant="28" id="ghj-XM-Sz4"/>
-                            <constraint firstItem="Oao-xP-LhX" firstAttribute="top" secondItem="qc7-PP-GqK" secondAttribute="topMargin" id="mgb-MB-9PE"/>
-                            <constraint firstItem="F7M-KU-VTE" firstAttribute="top" secondItem="vdc-Xc-ahl" secondAttribute="bottom" constant="19" id="uXe-J8-zHh"/>
-                            <constraint firstItem="F7M-KU-VTE" firstAttribute="centerX" secondItem="An4-Ft-R5y" secondAttribute="centerX" id="yqE-AK-sm0"/>
+                            <constraint firstItem="Lgb-AJ-DAG" firstAttribute="leading" secondItem="qc7-PP-GqK" secondAttribute="leadingMargin" constant="-16" id="0M5-4D-cWW"/>
+                            <constraint firstItem="cuS-Ar-VrX" firstAttribute="top" secondItem="Lgb-AJ-DAG" secondAttribute="bottom" id="0wS-Uf-ydF"/>
+                            <constraint firstItem="Lgb-AJ-DAG" firstAttribute="top" secondItem="qc7-PP-GqK" secondAttribute="topMargin" id="97X-Tg-Zli"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Lgb-AJ-DAG" secondAttribute="trailing" constant="-16" id="M0V-Ta-98a"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="scrollView" destination="Lgb-AJ-DAG" id="pjR-lC-VII"/>
+                        <outlet property="txtPassword" destination="vdc-Xc-ahl" id="Xpz-jP-aXU"/>
+                        <outlet property="txtUsername" destination="5fH-Tt-5kS" id="Pac-Pi-YNz"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nuW-TO-Isq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -87,7 +117,7 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5Am-5X-c65">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <subviews>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cjL-YW-pbn">
+                                    <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cjL-YW-pbn">
                                         <rect key="frame" x="173" y="218" width="254" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="254" id="zWW-QJ-weG"/>
@@ -95,10 +125,11 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" spellCheckingType="no" returnKeyType="next"/>
                                         <connections>
+                                            <action selector="nextButtonPressed:" destination="4lt-cb-prE" eventType="editingDidEndOnExit" id="J3d-Bt-NLb"/>
                                             <outlet property="delegate" destination="4lt-cb-prE" id="cnX-ry-pWa"/>
                                         </connections>
                                     </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gQO-Ka-fsq">
+                                    <textField opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gQO-Ka-fsq">
                                         <rect key="frame" x="172" y="256" width="254" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="254" id="B3M-j5-Xc1"/>
@@ -106,10 +137,11 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" spellCheckingType="no" returnKeyType="next"/>
                                         <connections>
+                                            <action selector="nextButtonPressed:" destination="4lt-cb-prE" eventType="editingDidEndOnExit" id="8K7-AA-Jkk"/>
                                             <outlet property="delegate" destination="4lt-cb-prE" id="G7t-ZS-sHM"/>
                                         </connections>
                                     </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Full Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Rpi-x7-iFz">
+                                    <textField opaque="NO" clipsSubviews="YES" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Full Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Rpi-x7-iFz">
                                         <rect key="frame" x="173" y="295" width="254" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="254" id="GYR-4d-pa8"/>
@@ -117,10 +149,11 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" spellCheckingType="no" returnKeyType="next"/>
                                         <connections>
+                                            <action selector="nextButtonPressed:" destination="4lt-cb-prE" eventType="editingDidEndOnExit" id="DJW-a5-gTy"/>
                                             <outlet property="delegate" destination="4lt-cb-prE" id="0SR-zQ-sfQ"/>
                                         </connections>
                                     </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Location" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="41f-jG-hLi">
+                                    <textField opaque="NO" clipsSubviews="YES" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Location" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="41f-jG-hLi">
                                         <rect key="frame" x="172" y="371" width="254" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="254" id="cFy-QR-uQP"/>
@@ -128,10 +161,11 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" spellCheckingType="no" returnKeyType="next"/>
                                         <connections>
+                                            <action selector="nextButtonPressed:" destination="4lt-cb-prE" eventType="editingDidEndOnExit" id="lan-9m-Ycw"/>
                                             <outlet property="delegate" destination="4lt-cb-prE" id="slJ-Mn-UZA"/>
                                         </connections>
                                     </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="About" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2GE-YJ-CbS">
+                                    <textField opaque="NO" clipsSubviews="YES" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="About" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2GE-YJ-CbS">
                                         <rect key="frame" x="173" y="409" width="254" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="254" id="4HT-MO-EQ7"/>
@@ -139,17 +173,19 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" spellCheckingType="no" returnKeyType="next"/>
                                         <connections>
+                                            <action selector="nextButtonPressed:" destination="4lt-cb-prE" eventType="editingDidEndOnExit" id="uj0-45-fcB"/>
                                             <outlet property="delegate" destination="4lt-cb-prE" id="WUf-ra-DfH"/>
                                         </connections>
                                     </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kyA-WB-GzS">
+                                    <textField opaque="NO" clipsSubviews="YES" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kyA-WB-GzS">
                                         <rect key="frame" x="173" y="447" width="254" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="254" id="ckp-zj-9pQ"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" spellCheckingType="no" returnKeyType="join" secureTextEntry="YES"/>
+                                        <textInputTraits key="textInputTraits" spellCheckingType="no" returnKeyType="send" secureTextEntry="YES"/>
                                         <connections>
+                                            <action selector="finishButtonPressed:" destination="4lt-cb-prE" eventType="editingDidEndOnExit" id="YKj-58-vFb"/>
                                             <outlet property="delegate" destination="4lt-cb-prE" id="opO-vJ-nHg"/>
                                         </connections>
                                     </textField>
@@ -170,7 +206,7 @@
                                             <constraint firstAttribute="height" constant="182" id="sCZ-65-bqV"/>
                                         </constraints>
                                     </imageView>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Url" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="j7d-Pz-kKI">
+                                    <textField opaque="NO" clipsSubviews="YES" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Url" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="j7d-Pz-kKI">
                                         <rect key="frame" x="173" y="333" width="254" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="254" id="GIS-or-sGC"/>
@@ -178,6 +214,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" spellCheckingType="no" returnKeyType="next"/>
                                         <connections>
+                                            <action selector="nextButtonPressed:" destination="4lt-cb-prE" eventType="editingDidEndOnExit" id="T7C-QL-WHV"/>
                                             <outlet property="delegate" destination="4lt-cb-prE" id="Suk-5b-6a6"/>
                                         </connections>
                                     </textField>
@@ -229,4 +266,7 @@
             <point key="canvasLocation" x="609" y="484"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Twitter_logo_blue" width="254" height="254"/>
+    </resources>
 </document>

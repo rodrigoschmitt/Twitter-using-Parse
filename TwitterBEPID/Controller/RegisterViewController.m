@@ -22,6 +22,16 @@
 
 #pragma mark - Methods of UIButton (IBAction)
 
+- (IBAction)nextButtonPressed:(UIButton *)sender {
+    
+    UIView *subView = [_scrollView viewWithTag:sender.tag + 1];
+    
+    if ([subView isKindOfClass:[UITextField class]])
+    {
+        [subView becomeFirstResponder];
+    }
+}
+
 - (IBAction)finishButtonPressed:(UIButton *)sender {
     
     User *user = [[User alloc] init];
