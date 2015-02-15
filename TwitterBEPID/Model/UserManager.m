@@ -7,31 +7,67 @@
 //
 
 #import "UserManager.h"
+#import "Common.h"
 #import <Parse/Parse.h>
-#import "User.h"
 
 @implementation UserManager
 
-- (void)loginUser:(User *)_user {
++ (UserManager *) singleton
+{
+    static UserManager *instance;
+    
+    if (instance == nil)
+        instance = [[UserManager alloc] init];
+    
+    return instance;
+}
+
+#pragma mark - Save local
+
+- (void)saveLocalUserLogged:(User *)user {
+    
+    NSData *encodedObject = [NSKeyedArchiver archivedDataWithRootObject:user];
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    [userDefaults setObject:encodedObject forKey:UD_USER_LOGGED];
+    [userDefaults synchronize];
+    
+}
+
+- (User *)loadLocalUserLogged {
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSData *encodedObject = [defaults objectForKey:UD_USER_LOGGED];
+    
+    User *user = [NSKeyedUnarchiver unarchiveObjectWithData:encodedObject];
+    
+    return user;
+    
+}
+
+#pragma Mark - API Parse for WebService
+
+- (void)loginUser:(User *)_user response:(void (^)(bool success))response {
     
     PFQuery *query = [PFQuery queryWithClassName:@"User"];
     [query whereKey:@"userName" equalTo:_user.username];
     [query whereKey:@"password" equalTo:_user.password];
+    
     [query getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
+        
         if (!object) {
-            NSLog(@"The getFirstObject request failed.");
-        } else {
-            // The find succeeded.
-            NSLog(@"Successfully retrieved the object.");
+            NSLog(@"Error message: %@", error.description);
             
+            response(NO);
+        } else {
             _user.fullName = [object objectForKey:@"fullName"];
             _user.email = [object objectForKey:@"email"];
             _user.about = [object objectForKey:@"description"];
             _user.location = [object objectForKey:@"location"];
             _user.url = [object objectForKey:@"url"];
             
-            NSLog(@"User content: %@", _user);
+            response(YES);
         }
+        
     }];
     
 }

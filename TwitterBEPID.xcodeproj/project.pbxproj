@@ -83,6 +83,7 @@
 		81113AA51A8FB9E700F07E78 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RegisterViewController.m; path = Controller/RegisterViewController.m; sourceTree = "<group>"; };
 		81113AA71A8FC5B800F07E78 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = User.h; path = Model/User.h; sourceTree = "<group>"; };
 		81113AA81A8FC5B800F07E78 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = User.m; path = Model/User.m; sourceTree = "<group>"; };
+		816230461A910E6000110ABA /* Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +139,7 @@
 		81113A521A8FB4D700F07E78 /* TwitterBEPID */ = {
 			isa = PBXGroup;
 			children = (
+				816230461A910E6000110ABA /* Common.h */,
 				81113A571A8FB4D700F07E78 /* AppDelegate.h */,
 				81113A581A8FB4D700F07E78 /* AppDelegate.m */,
 				81113A631A8FB4D700F07E78 /* Images.xcassets */,

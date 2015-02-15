@@ -7,12 +7,17 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "User.h"
 
 @class User;
 
 @interface UserManager : NSObject
 
-- (void)loginUser:(User *)_user;
++ (UserManager *) singleton;
+
+- (void)saveLocalUserLogged:(User *)user;
+- (User *)loadLocalUserLogged;
+- (void)loginUser:(User *)_user response:(void (^)(bool success))response;
 - (void)registerUser:(User *)_user;
 
 @end

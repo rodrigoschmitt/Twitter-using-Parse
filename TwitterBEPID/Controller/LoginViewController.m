@@ -32,12 +32,39 @@
     user.username = self.txtUsername.text;
     user.password = self.txtPassword.text;
     
-    UserManager *userManager = [[UserManager alloc] init];
-    [userManager loginUser:user];
-    
+    [[UserManager singleton] loginUser:user response:^(bool success) {
+        
+        if (success) {
+            
+            // Save User Object in NSUserDefaults
+            [[UserManager singleton] saveLocalUserLogged:user];
+            
+            [self performSelectorOnMainThread:@selector(closeLogin) withObject:nil waitUntilDone:NO];
+            
+        } else {
+            
+            [self performSelectorOnMainThread:@selector(errorRequestLogin) withObject:nil waitUntilDone:NO];
+            
+        }
+    }];
 }
 
 #pragma mark - Custom Methods
+
+- (void)closeLogin {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)errorRequestLogin {
+    
+    [self alertWithTitle:@"Fail" message:@"Login or Password invalid!"];
+    
+}
+
+- (void)alertWithTitle:(NSString *)_alertTitle message:(NSString *)_alertMessage {
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:_alertTitle message:_alertMessage delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    [alert show];
+}
 
 - (void)keyboardWasShown {
     [_scrollView setContentOffset:CGPointMake(0.0, _activeField.frame.origin.y - kOFFSET_FOR_KEYBOARD) animated:YES];
