@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		810AD94B1A90110200B7B2B5 /* UserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 810AD94A1A90110200B7B2B5 /* UserManager.m */; };
 		81113A561A8FB4D700F07E78 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 81113A551A8FB4D700F07E78 /* main.m */; };
 		81113A591A8FB4D700F07E78 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 81113A581A8FB4D700F07E78 /* AppDelegate.m */; };
 		81113A5C1A8FB4D700F07E78 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81113A5B1A8FB4D700F07E78 /* FirstViewController.m */; };
@@ -45,6 +46,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		810AD9491A90110200B7B2B5 /* UserManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserManager.h; path = Model/UserManager.h; sourceTree = "<group>"; };
+		810AD94A1A90110200B7B2B5 /* UserManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserManager.m; path = Model/UserManager.m; sourceTree = "<group>"; };
 		81113A501A8FB4D700F07E78 /* TwitterBEPID.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TwitterBEPID.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		81113A541A8FB4D700F07E78 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		81113A551A8FB4D700F07E78 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -222,6 +225,8 @@
 			children = (
 				81113AA71A8FC5B800F07E78 /* User.h */,
 				81113AA81A8FC5B800F07E78 /* User.m */,
+				810AD9491A90110200B7B2B5 /* UserManager.h */,
+				810AD94A1A90110200B7B2B5 /* UserManager.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -329,6 +334,7 @@
 			files = (
 				81113A5F1A8FB4D700F07E78 /* SecondViewController.m in Sources */,
 				81113AA61A8FB9E700F07E78 /* RegisterViewController.m in Sources */,
+				810AD94B1A90110200B7B2B5 /* UserManager.m in Sources */,
 				81113A591A8FB4D700F07E78 /* AppDelegate.m in Sources */,
 				81113A5C1A8FB4D700F07E78 /* FirstViewController.m in Sources */,
 				81113A561A8FB4D700F07E78 /* main.m in Sources */,

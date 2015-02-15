@@ -7,23 +7,8 @@
 //
 
 #import "User.h"
-#import <Parse/Parse.h>
 
 @implementation User
 
-- (void)registerUser {
-    
-    PFObject *registerUserObj = [PFObject objectWithClassName:@"User"];
-    registerUserObj[@"userName"] = self.username;
-    registerUserObj[@"fullName"] = self.fullName;
-    registerUserObj[@"email"] = self.email;
-    registerUserObj[@"description"] = self.about;
-    registerUserObj[@"location"] = self.location;
-    registerUserObj[@"url"] = self.url;
-    registerUserObj[@"password"] = self.password;
-    
-    [registerUserObj saveInBackground];
-    
-}
 
 @end

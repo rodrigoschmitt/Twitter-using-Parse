@@ -8,8 +8,13 @@
 
 #import "RegisterViewController.h"
 #import "User.h"
+#import "UserManager.h"
+
+#define kOFFSET_FOR_KEYBOARD 200.0
 
 @interface RegisterViewController ()
+
+@property UITextField *activeField;
 
 @end
 
@@ -28,17 +33,53 @@
     user.url = self.txtUrl.text;
     user.password = self.txtPassword.text;
     
-    [user registerUser];
+    UserManager *userManager = [[UserManager alloc] init];
+    [userManager registerUser:user];
     
     [self dismissViewControllerAnimated:YES completion:nil];
     
+}
+
+#pragma mark - Custom Methods
+
+- (void)keyboardWasShown {
+   [_scrollView setContentOffset:CGPointMake(0.0, _activeField.frame.origin.y - kOFFSET_FOR_KEYBOARD) animated:YES];
+}
+
+- (void)keyboardWillBeHidden
+{
+    [_scrollView setContentOffset:CGPointMake(0.0, 0.0) animated:YES];
+}
+
+- (void)resignOnTap:(id)iSender {
+    [_activeField resignFirstResponder];
+    
+    [self keyboardWillBeHidden];
+}
+
+#pragma mark - UITextField (Delegate)
+
+- (void)textFieldDidBeginEditing:(UITextField *)textField
+{
+    _activeField = textField;
+    
+    [self keyboardWasShown];
+}
+
+- (void)textFieldDidEndEditing:(UITextField *)textField
+{
+    _activeField = nil;
 }
 
 #pragma mark - Methods of this ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(resignOnTap:)];
+    [singleTap setNumberOfTapsRequired:1];
+    [singleTap setNumberOfTouchesRequired:1];
+    [self.view addGestureRecognizer:singleTap];
 }
 
 - (void)didReceiveMemoryWarning {

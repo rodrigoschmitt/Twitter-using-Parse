@@ -18,6 +18,4 @@
 @property (strong, nonatomic) NSString *url;
 @property (strong, nonatomic) NSString *password;
 
-- (void)registerUser;
-
 @end
