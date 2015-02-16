@@ -7,6 +7,8 @@
 //
 
 #import "LoginViewController.h"
+#import "Common.h"
+#import "Util.h"
 #import "UserManager.h"
 #import "User.h"
 
@@ -37,7 +39,7 @@
         if (success) {
             
             // Save User Object in NSUserDefaults
-            [[UserManager singleton] saveLocalUserLogged:user];
+            [Util archiveAndSaveObject:user toUserDefaultsWithKey:UD_USER_LOGGED];
             
             [self performSelectorOnMainThread:@selector(closeLogin) withObject:nil waitUntilDone:NO];
             

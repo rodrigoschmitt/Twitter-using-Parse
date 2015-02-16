@@ -7,7 +7,9 @@
 //
 
 #import "TimelineViewController.h"
-#import "UserManager.h"
+#import "Common.h"
+//#import "UserManager.h"
+#import "Util.h"
 #import "User.h"
 
 @interface TimelineViewController ()
@@ -19,7 +21,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    if (![[UserManager singleton] loadLocalUserLogged])
+    if (![Util unarchiveObjectFromUserDefaultsWithKey:UD_USER_LOGGED])
     {
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Login" bundle:nil];
         UIViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"login"];
@@ -27,7 +29,7 @@
     }
     else
     {
-        User *user = [[UserManager singleton] loadLocalUserLogged];
+        User *user = [Util unarchiveObjectFromUserDefaultsWithKey:UD_USER_LOGGED];
         NSLog(@"Full Name: %@", user.fullName);
     }
 }

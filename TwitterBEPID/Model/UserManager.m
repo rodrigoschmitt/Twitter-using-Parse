@@ -22,37 +22,15 @@
     return instance;
 }
 
-#pragma mark - Save local
-
-- (void)saveLocalUserLogged:(User *)user {
-    
-    NSData *encodedObject = [NSKeyedArchiver archivedDataWithRootObject:user];
-    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    [userDefaults setObject:encodedObject forKey:UD_USER_LOGGED];
-    [userDefaults synchronize];
-    
-}
-
-- (User *)loadLocalUserLogged {
-    
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    NSData *encodedObject = [defaults objectForKey:UD_USER_LOGGED];
-    
-    User *user = [NSKeyedUnarchiver unarchiveObjectWithData:encodedObject];
-    
-    return user;
-    
-}
-
 #pragma Mark - API Parse for WebService
 
 - (void)loginUser:(User *)_user response:(void (^)(bool success))response {
     
-    PFQuery *query = [PFQuery queryWithClassName:@"User"];
-    [query whereKey:@"userName" equalTo:_user.username];
-    [query whereKey:@"password" equalTo:_user.password];
+    PFQuery *userQuery = [PFQuery queryWithClassName:@"User"];
+    [userQuery whereKey:@"userName" equalTo:_user.username];
+    [userQuery whereKey:@"password" equalTo:_user.password];
     
-    [query getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
+    [userQuery getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
         
         if (!object) {
             NSLog(@"Error message: %@", error.description);
@@ -98,6 +76,48 @@
     
     
     [registerUserObj saveInBackground];
+    
+}
+
+- (void)requestUsers:(void (^)(NSArray *users, NSError *error))response {
+    
+    PFQuery *usersQuery = [PFQuery queryWithClassName:@"User"];
+    [usersQuery orderByDescending:@"createdAt"];
+    
+    [usersQuery findObjectsInBackgroundWithBlock:^(NSArray *results, NSError *error) {
+        
+        if (!results) {
+            response(nil, error);
+        }
+        else {
+            NSMutableArray *users = [[NSMutableArray alloc] init];
+            
+            for (int i = 0; i < [results count]; i++) {
+                
+                PFObject *object = [results objectAtIndex:i];
+                
+                User *user = [[User alloc] init];
+                user.username = [object objectForKey:@"userName"];
+                user.password = [object objectForKey:@"password"];
+                user.fullName = [object objectForKey:@"fullName"];
+                user.email = [object objectForKey:@"email"];
+                user.about = [object objectForKey:@"description"];
+                user.location = [object objectForKey:@"location"];
+                user.url = [object objectForKey:@"url"];
+                
+                if ([object objectForKey:@"profileImage"])
+                {
+                    PFFile *pfFile = [object objectForKey:@"profileImage"];
+                    user.profileImage = pfFile.url;
+                }
+                
+                [users addObject:user];
+            }
+            
+            
+            response(users, nil);
+        }
+    }];
     
 }
 

@@ -15,9 +15,8 @@
 
 + (UserManager *) singleton;
 
-- (void)saveLocalUserLogged:(User *)user;
-- (User *)loadLocalUserLogged;
 - (void)loginUser:(User *)_user response:(void (^)(bool success))response;
 - (void)registerUser:(User *)_user profileImage:(UIImage *)profileImage;
+- (void)requestUsers:(void (^)(NSArray *users, NSError *error))response;
 
 @end
