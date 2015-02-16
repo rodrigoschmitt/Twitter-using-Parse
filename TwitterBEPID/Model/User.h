@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 DevMac. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 @interface User : NSObject
 
@@ -17,5 +17,6 @@
 @property (strong, nonatomic) NSString *location;
 @property (strong, nonatomic) NSString *url;
 @property (strong, nonatomic) NSString *password;
+@property (strong, nonatomic) NSString *profileImage;
 
 @end

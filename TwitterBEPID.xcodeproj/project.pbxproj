@@ -10,8 +10,6 @@
 		810AD94B1A90110200B7B2B5 /* UserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 810AD94A1A90110200B7B2B5 /* UserManager.m */; };
 		81113A561A8FB4D700F07E78 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 81113A551A8FB4D700F07E78 /* main.m */; };
 		81113A591A8FB4D700F07E78 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 81113A581A8FB4D700F07E78 /* AppDelegate.m */; };
-		81113A5C1A8FB4D700F07E78 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81113A5B1A8FB4D700F07E78 /* FirstViewController.m */; };
-		81113A5F1A8FB4D700F07E78 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81113A5E1A8FB4D700F07E78 /* SecondViewController.m */; };
 		81113A621A8FB4D700F07E78 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81113A601A8FB4D700F07E78 /* Main.storyboard */; };
 		81113A641A8FB4D700F07E78 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 81113A631A8FB4D700F07E78 /* Images.xcassets */; };
 		81113A671A8FB4D700F07E78 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81113A651A8FB4D700F07E78 /* LaunchScreen.xib */; };
@@ -33,6 +31,12 @@
 		81113AA31A8FB9D600F07E78 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81113AA21A8FB9D600F07E78 /* LoginViewController.m */; };
 		81113AA61A8FB9E700F07E78 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81113AA51A8FB9E700F07E78 /* RegisterViewController.m */; };
 		81113AA91A8FC5B800F07E78 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 81113AA81A8FC5B800F07E78 /* User.m */; };
+		81A9E3E71A917D3F00B4F52E /* FavoritesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81A9E3E61A917D3F00B4F52E /* FavoritesViewController.m */; };
+		81A9E3EA1A917D5A00B4F52E /* MessagesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81A9E3E91A917D5A00B4F52E /* MessagesViewController.m */; };
+		81A9E3ED1A917D7900B4F52E /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81A9E3EC1A917D7900B4F52E /* ProfileViewController.m */; };
+		81A9E3F01A917D8D00B4F52E /* TweetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81A9E3EF1A917D8D00B4F52E /* TweetViewController.m */; };
+		81A9E3F41A91809C00B4F52E /* TimelineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81A9E3F31A91809C00B4F52E /* TimelineViewController.m */; };
+		81A9E3F71A9180B500B4F52E /* UsersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81A9E3F61A9180B500B4F52E /* UsersViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,10 +57,6 @@
 		81113A551A8FB4D700F07E78 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		81113A571A8FB4D700F07E78 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		81113A581A8FB4D700F07E78 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		81113A5A1A8FB4D700F07E78 /* FirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
-		81113A5B1A8FB4D700F07E78 /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
-		81113A5D1A8FB4D700F07E78 /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
-		81113A5E1A8FB4D700F07E78 /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
 		81113A611A8FB4D700F07E78 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		81113A631A8FB4D700F07E78 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		81113A661A8FB4D700F07E78 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -84,6 +84,18 @@
 		81113AA71A8FC5B800F07E78 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = User.h; path = Model/User.h; sourceTree = "<group>"; };
 		81113AA81A8FC5B800F07E78 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = User.m; path = Model/User.m; sourceTree = "<group>"; };
 		816230461A910E6000110ABA /* Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
+		81A9E3E51A917D3F00B4F52E /* FavoritesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FavoritesViewController.h; path = Controller/FavoritesViewController.h; sourceTree = "<group>"; };
+		81A9E3E61A917D3F00B4F52E /* FavoritesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FavoritesViewController.m; path = Controller/FavoritesViewController.m; sourceTree = "<group>"; };
+		81A9E3E81A917D5A00B4F52E /* MessagesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MessagesViewController.h; path = Controller/MessagesViewController.h; sourceTree = "<group>"; };
+		81A9E3E91A917D5A00B4F52E /* MessagesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MessagesViewController.m; path = Controller/MessagesViewController.m; sourceTree = "<group>"; };
+		81A9E3EB1A917D7900B4F52E /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProfileViewController.h; path = Controller/ProfileViewController.h; sourceTree = "<group>"; };
+		81A9E3EC1A917D7900B4F52E /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProfileViewController.m; path = Controller/ProfileViewController.m; sourceTree = "<group>"; };
+		81A9E3EE1A917D8D00B4F52E /* TweetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TweetViewController.h; path = Controller/TweetViewController.h; sourceTree = "<group>"; };
+		81A9E3EF1A917D8D00B4F52E /* TweetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TweetViewController.m; path = Controller/TweetViewController.m; sourceTree = "<group>"; };
+		81A9E3F21A91809C00B4F52E /* TimelineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TimelineViewController.h; path = Controller/TimelineViewController.h; sourceTree = "<group>"; };
+		81A9E3F31A91809C00B4F52E /* TimelineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TimelineViewController.m; path = Controller/TimelineViewController.m; sourceTree = "<group>"; };
+		81A9E3F51A9180B500B4F52E /* UsersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UsersViewController.h; path = Controller/UsersViewController.h; sourceTree = "<group>"; };
+		81A9E3F61A9180B500B4F52E /* UsersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UsersViewController.m; path = Controller/UsersViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,10 +158,6 @@
 				81113AA01A8FB98D00F07E78 /* Model */,
 				81113A9E1A8FB94A00F07E78 /* View */,
 				81113A9F1A8FB98200F07E78 /* Controller */,
-				81113A5A1A8FB4D700F07E78 /* FirstViewController.h */,
-				81113A5B1A8FB4D700F07E78 /* FirstViewController.m */,
-				81113A5D1A8FB4D700F07E78 /* SecondViewController.h */,
-				81113A5E1A8FB4D700F07E78 /* SecondViewController.m */,
 				81113A531A8FB4D700F07E78 /* Supporting Files */,
 			);
 			path = TwitterBEPID;
@@ -218,6 +226,18 @@
 				81113AA21A8FB9D600F07E78 /* LoginViewController.m */,
 				81113AA41A8FB9E700F07E78 /* RegisterViewController.h */,
 				81113AA51A8FB9E700F07E78 /* RegisterViewController.m */,
+				81A9E3F21A91809C00B4F52E /* TimelineViewController.h */,
+				81A9E3F31A91809C00B4F52E /* TimelineViewController.m */,
+				81A9E3F51A9180B500B4F52E /* UsersViewController.h */,
+				81A9E3F61A9180B500B4F52E /* UsersViewController.m */,
+				81A9E3E51A917D3F00B4F52E /* FavoritesViewController.h */,
+				81A9E3E61A917D3F00B4F52E /* FavoritesViewController.m */,
+				81A9E3E81A917D5A00B4F52E /* MessagesViewController.h */,
+				81A9E3E91A917D5A00B4F52E /* MessagesViewController.m */,
+				81A9E3EB1A917D7900B4F52E /* ProfileViewController.h */,
+				81A9E3EC1A917D7900B4F52E /* ProfileViewController.m */,
+				81A9E3EE1A917D8D00B4F52E /* TweetViewController.h */,
+				81A9E3EF1A917D8D00B4F52E /* TweetViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -334,12 +354,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				81113A5F1A8FB4D700F07E78 /* SecondViewController.m in Sources */,
+				81A9E3F01A917D8D00B4F52E /* TweetViewController.m in Sources */,
+				81A9E3EA1A917D5A00B4F52E /* MessagesViewController.m in Sources */,
 				81113AA61A8FB9E700F07E78 /* RegisterViewController.m in Sources */,
 				810AD94B1A90110200B7B2B5 /* UserManager.m in Sources */,
+				81A9E3F41A91809C00B4F52E /* TimelineViewController.m in Sources */,
 				81113A591A8FB4D700F07E78 /* AppDelegate.m in Sources */,
-				81113A5C1A8FB4D700F07E78 /* FirstViewController.m in Sources */,
 				81113A561A8FB4D700F07E78 /* main.m in Sources */,
+				81A9E3ED1A917D7900B4F52E /* ProfileViewController.m in Sources */,
+				81A9E3E71A917D3F00B4F52E /* FavoritesViewController.m in Sources */,
+				81A9E3F71A9180B500B4F52E /* UsersViewController.m in Sources */,
 				81113AA91A8FC5B800F07E78 /* User.m in Sources */,
 				81113AA31A8FB9D600F07E78 /* LoginViewController.m in Sources */,
 			);
@@ -425,7 +449,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -460,7 +484,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -478,6 +502,7 @@
 				INFOPLIST_FILE = TwitterBEPID/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "ced17771-3d04-4a56-a9ef-01346a25022a";
 			};
 			name = Debug;
 		};
@@ -492,6 +517,7 @@
 				INFOPLIST_FILE = TwitterBEPID/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "ced17771-3d04-4a56-a9ef-01346a25022a";
 			};
 			name = Release;
 		};

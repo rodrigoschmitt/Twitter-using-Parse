@@ -44,7 +44,7 @@
     user.password = self.txtPassword.text;
     
     UserManager *userManager = [[UserManager alloc] init];
-    [userManager registerUser:user];
+    [userManager registerUser:user profileImage:self.imgProfile.image];
     
     [self dismissViewControllerAnimated:YES completion:nil];
     

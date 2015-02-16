@@ -19,6 +19,7 @@
     [encoder encodeObject:self.location forKey:@"location"];
     [encoder encodeObject:self.url forKey:@"url"];
     [encoder encodeObject:self.password forKey:@"password"];
+    [encoder encodeObject:self.profileImage forKey:@"profileImage"];
 }
 
 - (id)initWithCoder:(NSCoder *)decoder {
@@ -30,6 +31,7 @@
         self.location = [decoder decodeObjectForKey:@"location"];
         self.url = [decoder decodeObjectForKey:@"url"];
         self.password = [decoder decodeObjectForKey:@"password"];
+        self.profileImage = [decoder decodeObjectForKey:@"profileImage"];
     }
     return self;
 }

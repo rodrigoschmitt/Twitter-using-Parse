@@ -65,6 +65,12 @@
             _user.location = [object objectForKey:@"location"];
             _user.url = [object objectForKey:@"url"];
             
+            if ([object objectForKey:@"profileImage"])
+            {
+                PFFile *pfFile = [object objectForKey:@"profileImage"];
+                _user.profileImage = pfFile.url;
+            }
+            
             response(YES);
         }
         
@@ -72,7 +78,7 @@
     
 }
 
-- (void)registerUser:(User *)_user {
+- (void)registerUser:(User *)_user profileImage:(UIImage *)profileImage {
     
     PFObject *registerUserObj = [PFObject objectWithClassName:@"User"];
     registerUserObj[@"userName"] = _user.username;
@@ -82,6 +88,14 @@
     registerUserObj[@"location"] = _user.location;
     registerUserObj[@"url"] = _user.url;
     registerUserObj[@"password"] = _user.password;
+    
+    if (profileImage)
+    {
+        NSData *imageData = UIImageJPEGRepresentation(profileImage, 0.6);
+        PFFile *imageFile = [PFFile fileWithName:[NSString stringWithFormat:@"%@.jpg", _user.username] data:imageData];
+        registerUserObj[@"profileImage"] = imageFile;
+    }
+    
     
     [registerUserObj saveInBackground];
     
