@@ -16,7 +16,12 @@
 @property (weak, nonatomic) IBOutlet UILabel *lblFullName;
 @property (weak, nonatomic) IBOutlet UILabel *lblDescription;
 @property (weak, nonatomic) IBOutlet UILabel *lblLocation;
+@property (weak, nonatomic) IBOutlet UIButton *btnMessage;
+@property (weak, nonatomic) IBOutlet UIButton *btnFollow;
+@property (weak, nonatomic) IBOutlet UIButton *btnLogout;
 
 @property (strong) User *user;
+
+- (IBAction)logoutButtonPressed:(UIButton *)sender;
 
 @end

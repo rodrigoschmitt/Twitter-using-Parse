@@ -7,6 +7,7 @@
 //
 
 #import "ProfileViewController.h"
+#import "Common.h"
 #import "Util.h"
 
 @interface ProfileViewController ()
@@ -15,8 +16,29 @@
 
 @implementation ProfileViewController
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
+#pragma mark - Methods of UIButton (IBAction)
+
+- (IBAction)logoutButtonPressed:(UIButton *)sender {
+    [Util removeUserDefaultsWithKey:UD_USER_LOGGED];
+    
+    self.user = nil;
+    
+    self.tabBarController.selectedIndex = 0;
+}
+
+#pragma mark - Custom Methods
+
+- (void)loadProfile {
+    
+    if (!self.user) {
+        self.user = [Util unarchiveObjectFromUserDefaultsWithKey:UD_USER_LOGGED];
+        
+        [self.btnMessage setHidden:YES];
+        [self.btnFollow setHidden:YES];
+        [self.btnLogout setHidden:NO];
+        
+        [self.navigationController.toolbar setNeedsDisplay];
+    }
     
     self.title = self.user.username;
     
@@ -28,6 +50,18 @@
     self.lblFullName.text = self.user.fullName;
     self.lblDescription.text = self.user.about;
     self.lblLocation.text = self.user.location;
+}
+
+#pragma mark - Methods of This ViewController
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    [self loadProfile];
+}
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
 }
 
 - (void)didReceiveMemoryWarning {

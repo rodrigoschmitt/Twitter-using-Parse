@@ -8,6 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TweetViewController : UIViewController
+@interface TweetViewController : UIViewController <UITextViewDelegate>
+
+@property (weak, nonatomic) IBOutlet UITextView *txtMessage;
+@property (weak, nonatomic) IBOutlet UILabel *lblCount;
+
+- (IBAction)cancelButtonPressed:(UIBarButtonItem *)sender;
+- (IBAction)tweetButtonPressed:(UIBarButtonItem *)sender;
 
 @end

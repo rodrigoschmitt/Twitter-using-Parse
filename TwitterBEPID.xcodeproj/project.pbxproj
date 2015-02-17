@@ -36,6 +36,7 @@
 		8135FC401A926BB8008F8B5B /* UsersCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8135FC3F1A926BB8008F8B5B /* UsersCollectionViewController.m */; };
 		8135FC431A926DCD008F8B5B /* UserCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8135FC421A926DCD008F8B5B /* UserCollectionViewCell.m */; };
 		8135FC471A926FDF008F8B5B /* AsyncImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8135FC461A926FDF008F8B5B /* AsyncImageView.m */; };
+		819A11971A93D42F00B254FE /* Message.m in Sources */ = {isa = PBXBuildFile; fileRef = 819A11961A93D42F00B254FE /* Message.m */; };
 		81A9E3E71A917D3F00B4F52E /* FavoritesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81A9E3E61A917D3F00B4F52E /* FavoritesViewController.m */; };
 		81A9E3EA1A917D5A00B4F52E /* MessagesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81A9E3E91A917D5A00B4F52E /* MessagesViewController.m */; };
 		81A9E3F01A917D8D00B4F52E /* TweetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81A9E3EF1A917D8D00B4F52E /* TweetViewController.m */; };
@@ -97,6 +98,8 @@
 		8135FC451A926FDF008F8B5B /* AsyncImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncImageView.h; sourceTree = "<group>"; };
 		8135FC461A926FDF008F8B5B /* AsyncImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncImageView.m; sourceTree = "<group>"; };
 		816230461A910E6000110ABA /* Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
+		819A11951A93D42F00B254FE /* Message.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Message.h; path = Model/Message.h; sourceTree = "<group>"; };
+		819A11961A93D42F00B254FE /* Message.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Message.m; path = Model/Message.m; sourceTree = "<group>"; };
 		81A9E3E51A917D3F00B4F52E /* FavoritesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FavoritesViewController.h; path = Controller/FavoritesViewController.h; sourceTree = "<group>"; };
 		81A9E3E61A917D3F00B4F52E /* FavoritesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FavoritesViewController.m; path = Controller/FavoritesViewController.m; sourceTree = "<group>"; };
 		81A9E3E81A917D5A00B4F52E /* MessagesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MessagesViewController.h; path = Controller/MessagesViewController.h; sourceTree = "<group>"; };
@@ -248,6 +251,8 @@
 				81113AA81A8FC5B800F07E78 /* User.m */,
 				810AD9491A90110200B7B2B5 /* UserManager.h */,
 				810AD94A1A90110200B7B2B5 /* UserManager.m */,
+				819A11951A93D42F00B254FE /* Message.h */,
+				819A11961A93D42F00B254FE /* Message.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -410,6 +415,7 @@
 				810AD94B1A90110200B7B2B5 /* UserManager.m in Sources */,
 				81A9E3F41A91809C00B4F52E /* TimelineViewController.m in Sources */,
 				8135FC471A926FDF008F8B5B /* AsyncImageView.m in Sources */,
+				819A11971A93D42F00B254FE /* Message.m in Sources */,
 				81113A591A8FB4D700F07E78 /* AppDelegate.m in Sources */,
 				81113A561A8FB4D700F07E78 /* main.m in Sources */,
 				8135FC431A926DCD008F8B5B /* UserCollectionViewCell.m in Sources */,

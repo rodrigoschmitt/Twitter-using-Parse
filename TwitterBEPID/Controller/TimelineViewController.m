@@ -18,10 +18,7 @@
 
 @implementation TimelineViewController
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    
-    self.title = @"Timeline";
+- (void)viewWillAppear:(BOOL)animated {
     
     if (![Util unarchiveObjectFromUserDefaultsWithKey:UD_USER_LOGGED])
     {
@@ -34,6 +31,13 @@
         User *user = [Util unarchiveObjectFromUserDefaultsWithKey:UD_USER_LOGGED];
         NSLog(@"Full Name: %@", user.fullName);
     }
+    
+}
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    
+    self.title = @"Timeline";
 }
 
 - (void)didReceiveMemoryWarning {

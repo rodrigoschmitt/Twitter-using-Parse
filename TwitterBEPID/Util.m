@@ -12,6 +12,13 @@
 
 #pragma mark - Archive Objects in NSUserDefaults
 
++ (void)removeUserDefaultsWithKey:(NSString *)key
+{
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    [userDefaults removeObjectForKey:key];
+    [userDefaults synchronize];
+}
+
 + (void)archiveAndSaveObject:(id)object toUserDefaultsWithKey:(NSString *)key
 {
     NSData *encodedObject = [NSKeyedArchiver archivedDataWithRootObject:object];

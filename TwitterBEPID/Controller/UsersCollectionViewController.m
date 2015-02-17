@@ -7,6 +7,8 @@
 //
 
 #import "UsersCollectionViewController.h"
+#import "Common.h"
+#import "Util.h"
 #import "UserManager.h"
 #import "User.h"
 #import "UserCollectionViewCell.h"
@@ -27,6 +29,8 @@ static NSString * const reuseIdentifier = @"Cell";
 
 - (void)loadData {
     
+    User *user = [Util unarchiveObjectFromUserDefaultsWithKey:UD_USER_LOGGED];
+    
     [[UserManager singleton] requestUsers:^(NSArray *users, NSError *error) {
         
         if (users) {
@@ -34,7 +38,7 @@ static NSString * const reuseIdentifier = @"Cell";
             [self performSelectorOnMainThread:@selector(updateDataWithUsers) withObject:nil waitUntilDone:NO];
         }
         
-    }];
+    } userExcluded:user];
     
 }
 
@@ -46,6 +50,12 @@ static NSString * const reuseIdentifier = @"Cell";
 
 #pragma mark - Methods of this ViewController
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    [self loadData];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -56,8 +66,6 @@ static NSString * const reuseIdentifier = @"Cell";
     
     // Register cell classes
     [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
-    
-    [self loadData];
 }
 
 - (void)didReceiveMemoryWarning {

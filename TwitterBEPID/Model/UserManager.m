@@ -79,10 +79,12 @@
     
 }
 
-- (void)requestUsers:(void (^)(NSArray *users, NSError *error))response {
+- (void)requestUsers:(void (^)(NSArray *users, NSError *error))response userExcluded:(User *)_user {
     
     PFQuery *usersQuery = [PFQuery queryWithClassName:@"User"];
     [usersQuery orderByDescending:@"createdAt"];
+    if (_user)
+        [usersQuery whereKey:@"userName" notEqualTo:_user.username];
     
     [usersQuery findObjectsInBackgroundWithBlock:^(NSArray *results, NSError *error) {
         
