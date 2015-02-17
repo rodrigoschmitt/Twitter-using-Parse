@@ -10,9 +10,11 @@
 #import "UserManager.h"
 #import "User.h"
 #import "UserCollectionViewCell.h"
+#import "ProfileViewController.h"
 
 @interface UsersCollectionViewController () {
     NSArray *arrayUsers;
+    NSInteger cellAtIndex;
 }
 
 @end
@@ -47,6 +49,8 @@ static NSString * const reuseIdentifier = @"Cell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.title = @"Users";
+    
     // Uncomment the following line to preserve selection between presentations
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -61,15 +65,15 @@ static NSString * const reuseIdentifier = @"Cell";
     // Dispose of any resources that can be recreated.
 }
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    ProfileViewController *controller = (ProfileViewController *)segue.destinationViewController;
+    controller.user = [arrayUsers objectAtIndex:cellAtIndex];
 }
-*/
+
 
 #pragma mark <UICollectionViewDataSource>
 
@@ -108,12 +112,15 @@ static NSString * const reuseIdentifier = @"Cell";
 }
 */
 
-/*
+
 // Uncomment this method to specify if the specified item should be selected
 - (BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    
+    cellAtIndex = indexPath.row;
+    
     return YES;
+    
 }
-*/
 
 /*
 // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item

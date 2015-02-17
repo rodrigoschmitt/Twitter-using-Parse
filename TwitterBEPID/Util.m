@@ -33,4 +33,12 @@
     }
 }
 
++ (void)circularProfile:(AsyncImageView *)imgPrile
+{
+    imgPrile.layer.cornerRadius = imgPrile.frame.size.width / 2;
+    imgPrile.clipsToBounds = YES;
+    imgPrile.layer.borderWidth = 3.0f;
+    imgPrile.layer.borderColor = [UIColor grayColor].CGColor;
+}
+
 @end

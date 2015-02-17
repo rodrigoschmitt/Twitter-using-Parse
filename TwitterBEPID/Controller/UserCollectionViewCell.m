@@ -7,14 +7,12 @@
 //
 
 #import "UserCollectionViewCell.h"
+#import "Util.h"
 
 @implementation UserCollectionViewCell
 
 - (void)configCell {
-    self.imgProfile.layer.cornerRadius = self.imgProfile.frame.size.width / 2;
-    self.imgProfile.clipsToBounds = YES;
-    self.imgProfile.layer.borderWidth = 3.0f;
-    self.imgProfile.layer.borderColor = [UIColor grayColor].CGColor;
+    [Util circularProfile:self.imgProfile];
 }
 
 @end

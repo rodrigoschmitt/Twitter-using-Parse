@@ -7,10 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "AsyncImageView.h"
 
 @interface Util : NSObject
 
 + (void)archiveAndSaveObject:(id)object toUserDefaultsWithKey:(NSString *)key;
 + (id)unarchiveObjectFromUserDefaultsWithKey:(NSString *)key;
++ (void)circularProfile:(AsyncImageView *)imgPrile;
 
 @end

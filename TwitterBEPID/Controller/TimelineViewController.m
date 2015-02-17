@@ -21,6 +21,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.title = @"Timeline";
+    
     if (![Util unarchiveObjectFromUserDefaultsWithKey:UD_USER_LOGGED])
     {
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Login" bundle:nil];
