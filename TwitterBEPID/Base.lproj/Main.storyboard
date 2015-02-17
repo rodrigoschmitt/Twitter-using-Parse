@@ -260,7 +260,7 @@
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rpp-sE-SZe">
-                                <rect key="frame" x="164" y="156" width="137" height="36"/>
+                                <rect key="frame" x="447" y="156" width="137" height="36"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="137" id="MFl-b5-UAx"/>
                                     <constraint firstAttribute="height" constant="36" id="fNs-WU-1cM"/>
@@ -277,20 +277,26 @@
                             <constraint firstItem="Rpp-sE-SZe" firstAttribute="centerY" secondItem="pMg-fA-JHg" secondAttribute="centerY" id="Bxf-1y-7wQ"/>
                             <constraint firstItem="tRp-xl-fN4" firstAttribute="top" secondItem="Rpp-sE-SZe" secondAttribute="bottom" constant="13" id="Dsv-1u-B4e"/>
                             <constraint firstItem="Ois-1O-ypr" firstAttribute="top" secondItem="ymN-fg-1H8" secondAttribute="bottom" constant="28" id="Fyf-N5-JtF"/>
-                            <constraint firstItem="Rpp-sE-SZe" firstAttribute="leading" secondItem="pMg-fA-JHg" secondAttribute="trailing" constant="8" id="GLr-PD-ZdY"/>
                             <constraint firstItem="Ois-1O-ypr" firstAttribute="leading" secondItem="3R7-Mf-XVU" secondAttribute="trailing" constant="8" id="HfI-94-dHp"/>
                             <constraint firstItem="U5X-8U-4X0" firstAttribute="leading" secondItem="3R7-Mf-XVU" secondAttribute="trailing" constant="8" id="Ol6-Sj-TJ9"/>
                             <constraint firstItem="wCy-ri-dT4" firstAttribute="leading" secondItem="3R7-Mf-XVU" secondAttribute="trailing" constant="8" id="V2T-fD-N2I"/>
                             <constraint firstItem="pMg-fA-JHg" firstAttribute="leading" secondItem="5AL-IV-d9l" secondAttribute="leadingMargin" id="cwK-Ov-5Rl"/>
                             <constraint firstItem="wCy-ri-dT4" firstAttribute="trailing" secondItem="5AL-IV-d9l" secondAttribute="trailingMargin" id="eoa-j9-wXR"/>
                             <constraint firstItem="pMg-fA-JHg" firstAttribute="top" secondItem="3R7-Mf-XVU" secondAttribute="bottom" constant="12" id="i2Z-Y7-WC6"/>
+                            <constraint firstItem="Rpp-sE-SZe" firstAttribute="trailing" secondItem="5AL-IV-d9l" secondAttribute="trailingMargin" id="jji-VW-Vb3"/>
                             <constraint firstItem="tRp-xl-fN4" firstAttribute="leading" secondItem="5AL-IV-d9l" secondAttribute="leadingMargin" constant="-16" id="lHB-c0-fy4"/>
                             <constraint firstItem="3R7-Mf-XVU" firstAttribute="leading" secondItem="5AL-IV-d9l" secondAttribute="leadingMargin" id="ldI-xB-arl"/>
                             <constraint firstItem="3R7-Mf-XVU" firstAttribute="top" secondItem="ymN-fg-1H8" secondAttribute="bottom" constant="8" id="nOb-Xb-aKN"/>
                             <constraint firstItem="Ois-1O-ypr" firstAttribute="trailing" secondItem="5AL-IV-d9l" secondAttribute="trailingMargin" id="rFA-wx-yoR"/>
                             <constraint firstItem="wCy-ri-dT4" firstAttribute="top" secondItem="ymN-fg-1H8" secondAttribute="bottom" constant="8" id="svJ-4s-OQA"/>
+                            <constraint firstItem="pMg-fA-JHg" firstAttribute="leading" secondItem="5AL-IV-d9l" secondAttribute="leadingMargin" id="wqU-xS-9vi"/>
                             <constraint firstAttribute="trailingMargin" secondItem="tRp-xl-fN4" secondAttribute="trailing" constant="-16" id="zRe-nx-ssM"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="cwK-Ov-5Rl"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="nf0-oD-8n5"/>
                     <connections>
