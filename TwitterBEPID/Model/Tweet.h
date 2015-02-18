@@ -1,5 +1,5 @@
 //
-//  Message.h
+//  Tweet.h
 //  TwitterBEPID
 //
 //  Created by Rodrigo Andrade on 2/17/15.
@@ -7,8 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "User.h"
 
-@interface Message : NSObject
+@interface Tweet : NSObject
 
+@property (strong, nonatomic) NSString *message;
+@property (strong, nonatomic) User *user;
 
 @end

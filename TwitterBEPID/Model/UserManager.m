@@ -37,6 +37,7 @@
             
             response(NO);
         } else {
+            _user.idUser = object.objectId;
             _user.fullName = [object objectForKey:@"fullName"];
             _user.email = [object objectForKey:@"email"];
             _user.about = [object objectForKey:@"description"];
@@ -99,6 +100,7 @@
                 PFObject *object = [results objectAtIndex:i];
                 
                 User *user = [[User alloc] init];
+                user.idUser = object.objectId;
                 user.username = [object objectForKey:@"userName"];
                 user.password = [object objectForKey:@"password"];
                 user.fullName = [object objectForKey:@"fullName"];

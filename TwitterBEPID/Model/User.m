@@ -12,6 +12,7 @@
 
 - (void)encodeWithCoder:(NSCoder *)encoder {
     //Encode properties, other class variables, etc
+    [encoder encodeObject:self.idUser forKey:@"idUser"];
     [encoder encodeObject:self.username forKey:@"username"];
     [encoder encodeObject:self.fullName forKey:@"fullName"];
     [encoder encodeObject:self.email forKey:@"email"];
@@ -24,6 +25,7 @@
 
 - (id)initWithCoder:(NSCoder *)decoder {
     if((self = [super init])) {
+        self.idUser = [decoder decodeObjectForKey:@"idUser"];
         self.username = [decoder decodeObjectForKey:@"username"];
         self.fullName = [decoder decodeObjectForKey:@"fullName"];
         self.email = [decoder decodeObjectForKey:@"email"];

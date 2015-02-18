@@ -8,7 +8,7 @@
 
 #import "TimelineViewController.h"
 #import "Common.h"
-//#import "UserManager.h"
+#import "TweetManager.h"
 #import "Util.h"
 #import "User.h"
 
@@ -17,6 +17,28 @@
 @end
 
 @implementation TimelineViewController
+
+#pragma mark - Custom Methods
+
+- (void)tweetMessage:(NSString *)message {
+    
+    TweetManager *tweetManager = [[TweetManager alloc] init];
+    
+    [tweetManager saveTweetWithMessage:message fromUser:[Util unarchiveObjectFromUserDefaultsWithKey:UD_USER_LOGGED] response:^(bool success) {
+        
+        if (success) {
+            
+//            [self performSelectorOnMainThread:@selector(closeLogin) withObject:nil waitUntilDone:NO];
+            
+        } else {
+            
+//            [self performSelectorOnMainThread:@selector(errorRequestLogin) withObject:nil waitUntilDone:NO];
+            
+        }
+    }];
+}
+
+#pragma mark - Methods of UIViewController
 
 - (void)viewWillAppear:(BOOL)animated {
     
@@ -38,6 +60,8 @@
     [super viewDidLoad];
     
     self.title = @"Timeline";
+    
+    //[self tweetMessage:@"Oi mundo!"];
 }
 
 - (void)didReceiveMemoryWarning {
