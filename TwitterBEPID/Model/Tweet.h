@@ -11,6 +11,7 @@
 
 @interface Tweet : NSObject
 
+@property (strong, nonatomic) NSString *idTweet;
 @property (strong, nonatomic) NSString *message;
 @property (strong, nonatomic) User *user;
 

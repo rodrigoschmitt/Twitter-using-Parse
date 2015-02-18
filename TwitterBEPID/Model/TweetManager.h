@@ -12,5 +12,6 @@
 @interface TweetManager : NSObject
 
 - (void)saveTweetWithMessage:(NSString *)message fromUser:(User *)user response:(void (^)(bool success))response;
+- (void)requestTweets:(void (^)(NSArray *tweets, NSError *error))response fromUser:(User *)_user;
 
 @end

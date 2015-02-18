@@ -7,12 +7,15 @@
 //
 
 #import "TimelineViewController.h"
+#import "TweetViewController.h"
 #import "Common.h"
-#import "TweetManager.h"
 #import "Util.h"
 #import "User.h"
+#import "TweetManager.h"
 
-@interface TimelineViewController ()
+@interface TimelineViewController () {
+    NSArray *arrayTweets;
+}
 
 @end
 
@@ -20,22 +23,31 @@
 
 #pragma mark - Custom Methods
 
-- (void)tweetMessage:(NSString *)message {
+- (void)loadData {
     
     TweetManager *tweetManager = [[TweetManager alloc] init];
     
-    [tweetManager saveTweetWithMessage:message fromUser:[Util unarchiveObjectFromUserDefaultsWithKey:UD_USER_LOGGED] response:^(bool success) {
+    [tweetManager requestTweets:^(NSArray *tweets, NSError *error) {
         
-        if (success) {
-            
-//            [self performSelectorOnMainThread:@selector(closeLogin) withObject:nil waitUntilDone:NO];
-            
-        } else {
-            
-//            [self performSelectorOnMainThread:@selector(errorRequestLogin) withObject:nil waitUntilDone:NO];
-            
-        }
-    }];
+        arrayTweets = tweets;
+        [self performSelectorOnMainThread:@selector(updateDataWithTweets) withObject:nil waitUntilDone:NO];
+        
+    } fromUser:[Util unarchiveObjectFromUserDefaultsWithKey:UD_USER_LOGGED]];
+    
+}
+
+- (void)updateDataWithTweets {
+    
+    [self.tableView reloadData];
+    
+}
+
+#pragma mark - Methods of TweetViewController (Delegate)
+
+- (void)doneTweetViewController {
+    [self dismissViewControllerAnimated:YES completion:nil];
+    
+    [self.tableView reloadData];
 }
 
 #pragma mark - Methods of UIViewController
@@ -61,7 +73,7 @@
     
     self.title = @"Timeline";
     
-    //[self tweetMessage:@"Oi mundo!"];
+    [self loadData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -127,14 +139,17 @@
 }
 */
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    if ([segue.identifier isEqualToString:@"segueTweetViewController"]) {
+        
+        UINavigationController *navigationController = segue.destinationViewController;
+        TweetViewController *tweetViewController= (TweetViewController *)navigationController.topViewController;
+        tweetViewController.delegate = self;
+    }
 }
-*/
 
 @end

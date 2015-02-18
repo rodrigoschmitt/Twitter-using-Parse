@@ -50,7 +50,7 @@
                     <navigationItem key="navigationItem" title="Root View Controller" id="V9c-1a-gbP">
                         <barButtonItem key="rightBarButtonItem" systemItem="compose" id="zaQ-CK-dPA">
                             <connections>
-                                <segue destination="gl8-Bq-gkP" kind="presentation" id="W1q-lD-cmK"/>
+                                <segue destination="gl8-Bq-gkP" kind="presentation" identifier="segueTweetViewController" id="W1q-lD-cmK"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

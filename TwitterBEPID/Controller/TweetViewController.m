@@ -7,6 +7,10 @@
 //
 
 #import "TweetViewController.h"
+#import "Common.h"
+#import "TweetManager.h"
+#import "Util.h"
+#import "User.h"
 
 @interface TweetViewController () {
     NSInteger countNumber;
@@ -15,6 +19,8 @@
 @end
 
 @implementation TweetViewController
+
+@synthesize delegate;
 
 #pragma mark - Methods of UIButton (IBAction)
 
@@ -25,7 +31,9 @@
 
 - (IBAction)tweetButtonPressed:(UIBarButtonItem *)sender
 {
-    if (countNumber >= 0) {
+    if (countNumber >= 0 && countNumber < 140) {
+        
+        [self tweetMessage:self.txtMessage.text];
         
     }
     else {
@@ -35,6 +43,30 @@
 }
 
 #pragma mark - Custom Methods
+
+- (void)tweetMessage:(NSString *)message {
+    
+    TweetManager *tweetManager = [[TweetManager alloc] init];
+    
+    [tweetManager saveTweetWithMessage:message fromUser:[Util unarchiveObjectFromUserDefaultsWithKey:UD_USER_LOGGED] response:^(bool success) {
+        
+        if (success) {
+            [self performSelectorOnMainThread:@selector(doneViewController) withObject:nil waitUntilDone:NO];
+        } else {
+            [self performSelectorOnMainThread:@selector(errorRequestLogin) withObject:nil waitUntilDone:NO];
+        }
+    }];
+}
+
+- (void)doneViewController {
+    
+    if ([self.delegate respondsToSelector:@selector(doneTweetViewController)])
+        [self.delegate doneTweetViewController];
+}
+
+- (void)errorRequestLogin {
+    [self alertWithTitle:@"Fail" message:@"Something is wrong, try later!"];
+}
 
 - (void)alertWithTitle:(NSString *)_alertTitle message:(NSString *)_alertMessage {
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:_alertTitle message:_alertMessage delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
@@ -56,6 +88,8 @@
     [super viewDidLoad];
     
     self.title = @"Compose";
+    
+    [self.txtMessage isFirstResponder];
     
 }
 

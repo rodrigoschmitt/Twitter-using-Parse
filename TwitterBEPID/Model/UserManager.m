@@ -87,37 +87,34 @@
     if (_user)
         [usersQuery whereKey:@"userName" notEqualTo:_user.username];
     
-    [usersQuery findObjectsInBackgroundWithBlock:^(NSArray *results, NSError *error) {
+    [usersQuery findObjectsInBackgroundWithBlock:^(NSArray *resultsUsers, NSError *error) {
         
-        if (!results) {
+        if (!resultsUsers) {
             response(nil, error);
         }
         else {
             NSMutableArray *users = [[NSMutableArray alloc] init];
             
-            for (int i = 0; i < [results count]; i++) {
-                
-                PFObject *object = [results objectAtIndex:i];
-                
+            for (PFObject *resultUser in resultsUsers)
+            {
                 User *user = [[User alloc] init];
-                user.idUser = object.objectId;
-                user.username = [object objectForKey:@"userName"];
-                user.password = [object objectForKey:@"password"];
-                user.fullName = [object objectForKey:@"fullName"];
-                user.email = [object objectForKey:@"email"];
-                user.about = [object objectForKey:@"description"];
-                user.location = [object objectForKey:@"location"];
-                user.url = [object objectForKey:@"url"];
+                user.idUser = resultUser.objectId;
+                user.username = [resultUser objectForKey:@"userName"];
+                user.password = [resultUser objectForKey:@"password"];
+                user.fullName = [resultUser objectForKey:@"fullName"];
+                user.email = [resultUser objectForKey:@"email"];
+                user.about = [resultUser objectForKey:@"description"];
+                user.location = [resultUser objectForKey:@"location"];
+                user.url = [resultUser objectForKey:@"url"];
                 
-                if ([object objectForKey:@"profileImage"])
+                if ([resultUser objectForKey:@"profileImage"])
                 {
-                    PFFile *pfFile = [object objectForKey:@"profileImage"];
+                    PFFile *pfFile = [resultUser objectForKey:@"profileImage"];
                     user.profileImage = pfFile.url;
                 }
                 
                 [users addObject:user];
             }
-            
             
             response(users, nil);
         }
