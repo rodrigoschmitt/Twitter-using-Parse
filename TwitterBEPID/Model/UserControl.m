@@ -71,7 +71,8 @@
     if (profileImage)
     {
         NSData *imageData = UIImageJPEGRepresentation(profileImage, 0.6);
-        PFFile *imageFile = [PFFile fileWithName:[NSString stringWithFormat:@"%@.jpg", _user.username] data:imageData];
+        PFFile *imageFile = [PFFile fileWithName:[NSString stringWithFormat:@"%@.jpg", _user.username]
+                                            data:imageData];
         registerUserObj[@"profileImage"] = imageFile;
     }
     

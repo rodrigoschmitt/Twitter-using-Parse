@@ -570,7 +570,7 @@
 				INFOPLIST_FILE = TwitterBEPID/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "ced17771-3d04-4a56-a9ef-01346a25022a";
+				PROVISIONING_PROFILE = "b2c8694d-24cb-441e-b137-f38b47724292";
 			};
 			name = Debug;
 		};
@@ -585,7 +585,7 @@
 				INFOPLIST_FILE = TwitterBEPID/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "ced17771-3d04-4a56-a9ef-01346a25022a";
+				PROVISIONING_PROFILE = "b2c8694d-24cb-441e-b137-f38b47724292";
 			};
 			name = Release;
 		};
