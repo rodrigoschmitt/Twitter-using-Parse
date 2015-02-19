@@ -60,9 +60,11 @@
     if (_user)
         [query whereKey:@"user" equalTo:[PFObject objectWithoutDataWithClassName:@"User" objectId:_user.idUser]];
     
-    [query includeKey:@"User.userName"];
-    [query includeKey:@"User.profileImage"];
     [query orderByDescending:@"createdAt"];
+    
+    [query includeKey:@"User"];
+//    [query includeKey:@"User.userName"];
+//    [query includeKey:@"User.profileImage"];
     
     [query findObjectsInBackgroundWithBlock:^(NSArray *resultsTweets, NSError *error) {
         
@@ -77,6 +79,8 @@
                 Tweet *tweet = [[Tweet alloc] init];
                 tweet.idTweet = resultTweet.objectId;
                 tweet.message = [resultTweet objectForKey:@"message"];
+                
+                PFObject *relationUser = resultTweet[@"parent"];
                 
                 
 //                PFRelation *relationUser = resultTweet[@"user"];
