@@ -11,9 +11,9 @@
 
 @class User;
 
-@interface UserManager : NSObject
+@interface UserControl : NSObject
 
-+ (UserManager *) singleton;
++ (UserControl *) singleton;
 
 - (void)loginUser:(User *)_user response:(void (^)(bool success))response;
 - (void)registerUser:(User *)_user profileImage:(UIImage *)profileImage;

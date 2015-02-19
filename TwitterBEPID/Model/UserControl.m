@@ -6,18 +6,18 @@
 //  Copyright (c) 2015 DevMac. All rights reserved.
 //
 
-#import "UserManager.h"
+#import "UserControl.h"
 #import "Common.h"
 #import <Parse/Parse.h>
 
-@implementation UserManager
+@implementation UserControl
 
-+ (UserManager *) singleton
++ (UserControl *) singleton
 {
-    static UserManager *instance;
+    static UserControl *instance;
     
     if (instance == nil)
-        instance = [[UserManager alloc] init];
+        instance = [[UserControl alloc] init];
     
     return instance;
 }

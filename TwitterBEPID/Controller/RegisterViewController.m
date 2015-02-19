@@ -8,7 +8,7 @@
 
 #import "RegisterViewController.h"
 #import "User.h"
-#import "UserManager.h"
+#import "UserControl.h"
 
 #define kOFFSET_FOR_KEYBOARD 200.0
 
@@ -43,8 +43,8 @@
     user.url = self.txtUrl.text;
     user.password = self.txtPassword.text;
     
-    UserManager *userManager = [[UserManager alloc] init];
-    [userManager registerUser:user profileImage:self.imgProfile.image];
+    UserControl *userControl = [[UserControl alloc] init];
+    [userControl registerUser:user profileImage:self.imgProfile.image];
     
     [self dismissViewControllerAnimated:YES completion:nil];
     

@@ -9,7 +9,7 @@
 #import "LoginViewController.h"
 #import "Common.h"
 #import "Util.h"
-#import "UserManager.h"
+#import "UserControl.h"
 #import "User.h"
 
 #define kOFFSET_FOR_KEYBOARD 200.0
@@ -34,7 +34,7 @@
     user.username = self.txtUsername.text;
     user.password = self.txtPassword.text;
     
-    [[UserManager singleton] loginUser:user response:^(bool success) {
+    [[UserControl singleton] loginUser:user response:^(bool success) {
         
         if (success) {
             

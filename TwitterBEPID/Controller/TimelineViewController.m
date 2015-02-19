@@ -11,7 +11,7 @@
 #import "Common.h"
 #import "Util.h"
 #import "User.h"
-#import "TweetManager.h"
+#import "TweetControl.h"
 #import "Tweet.h"
 
 @interface TimelineViewController () {
@@ -26,9 +26,9 @@
 
 - (void)loadData {
     
-    TweetManager *tweetManager = [[TweetManager alloc] init];
+    TweetControl *tweetControl = [[TweetControl alloc] init];
     
-    [tweetManager requestTweets:^(NSArray *tweets, NSError *error) {
+    [tweetControl requestTweets:^(NSArray *tweets, NSError *error) {
         
         arrayTweets = tweets;
         [self performSelectorOnMainThread:@selector(updateDataWithTweets) withObject:nil waitUntilDone:NO];

@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		810AD94B1A90110200B7B2B5 /* UserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 810AD94A1A90110200B7B2B5 /* UserManager.m */; };
+		810AD94B1A90110200B7B2B5 /* UserControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 810AD94A1A90110200B7B2B5 /* UserControl.m */; };
 		81111E101A92C69E004B878D /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81111E0F1A92C69E004B878D /* ProfileViewController.m */; };
 		81113A561A8FB4D700F07E78 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 81113A551A8FB4D700F07E78 /* main.m */; };
 		81113A591A8FB4D700F07E78 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 81113A581A8FB4D700F07E78 /* AppDelegate.m */; };
@@ -33,7 +33,7 @@
 		81113AA61A8FB9E700F07E78 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81113AA51A8FB9E700F07E78 /* RegisterViewController.m */; };
 		81113AA91A8FC5B800F07E78 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 81113AA81A8FC5B800F07E78 /* User.m */; };
 		81156A8A1A93F96C0001A1B6 /* Tweet.m in Sources */ = {isa = PBXBuildFile; fileRef = 81156A891A93F96C0001A1B6 /* Tweet.m */; };
-		81156A8D1A93F9810001A1B6 /* TweetManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 81156A8C1A93F9810001A1B6 /* TweetManager.m */; };
+		81156A8D1A93F9810001A1B6 /* TweetControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 81156A8C1A93F9810001A1B6 /* TweetControl.m */; };
 		8135FC3D1A924E62008F8B5B /* Util.m in Sources */ = {isa = PBXBuildFile; fileRef = 8135FC3C1A924E62008F8B5B /* Util.m */; };
 		8135FC401A926BB8008F8B5B /* UsersCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8135FC3F1A926BB8008F8B5B /* UsersCollectionViewController.m */; };
 		8135FC431A926DCD008F8B5B /* UserCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8135FC421A926DCD008F8B5B /* UserCollectionViewCell.m */; };
@@ -56,8 +56,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		810AD9491A90110200B7B2B5 /* UserManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserManager.h; path = Model/UserManager.h; sourceTree = "<group>"; };
-		810AD94A1A90110200B7B2B5 /* UserManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserManager.m; path = Model/UserManager.m; sourceTree = "<group>"; };
+		810AD9491A90110200B7B2B5 /* UserControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserControl.h; path = Model/UserControl.h; sourceTree = "<group>"; };
+		810AD94A1A90110200B7B2B5 /* UserControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserControl.m; path = Model/UserControl.m; sourceTree = "<group>"; };
 		81111E0E1A92C69E004B878D /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProfileViewController.h; path = Controller/ProfileViewController.h; sourceTree = "<group>"; };
 		81111E0F1A92C69E004B878D /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProfileViewController.m; path = Controller/ProfileViewController.m; sourceTree = "<group>"; };
 		81113A501A8FB4D700F07E78 /* TwitterBEPID.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TwitterBEPID.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -93,8 +93,8 @@
 		81113AA81A8FC5B800F07E78 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = User.m; path = Model/User.m; sourceTree = "<group>"; };
 		81156A881A93F96C0001A1B6 /* Tweet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Tweet.h; path = Model/Tweet.h; sourceTree = "<group>"; };
 		81156A891A93F96C0001A1B6 /* Tweet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Tweet.m; path = Model/Tweet.m; sourceTree = "<group>"; };
-		81156A8B1A93F9810001A1B6 /* TweetManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TweetManager.h; path = Model/TweetManager.h; sourceTree = "<group>"; };
-		81156A8C1A93F9810001A1B6 /* TweetManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TweetManager.m; path = Model/TweetManager.m; sourceTree = "<group>"; };
+		81156A8B1A93F9810001A1B6 /* TweetControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TweetControl.h; path = Model/TweetControl.h; sourceTree = "<group>"; };
+		81156A8C1A93F9810001A1B6 /* TweetControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TweetControl.m; path = Model/TweetControl.m; sourceTree = "<group>"; };
 		8135FC3B1A924E62008F8B5B /* Util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Util.h; sourceTree = "<group>"; };
 		8135FC3C1A924E62008F8B5B /* Util.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Util.m; sourceTree = "<group>"; };
 		8135FC3E1A926BB8008F8B5B /* UsersCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UsersCollectionViewController.h; path = Controller/UsersCollectionViewController.h; sourceTree = "<group>"; };
@@ -255,12 +255,12 @@
 			children = (
 				81113AA71A8FC5B800F07E78 /* User.h */,
 				81113AA81A8FC5B800F07E78 /* User.m */,
-				810AD9491A90110200B7B2B5 /* UserManager.h */,
-				810AD94A1A90110200B7B2B5 /* UserManager.m */,
+				810AD9491A90110200B7B2B5 /* UserControl.h */,
+				810AD94A1A90110200B7B2B5 /* UserControl.m */,
 				81156A881A93F96C0001A1B6 /* Tweet.h */,
 				81156A891A93F96C0001A1B6 /* Tweet.m */,
-				81156A8B1A93F9810001A1B6 /* TweetManager.h */,
-				81156A8C1A93F9810001A1B6 /* TweetManager.m */,
+				81156A8B1A93F9810001A1B6 /* TweetControl.h */,
+				81156A8C1A93F9810001A1B6 /* TweetControl.m */,
 				819A11951A93D42F00B254FE /* Message.h */,
 				819A11961A93D42F00B254FE /* Message.m */,
 			);
@@ -422,7 +422,7 @@
 				8135FC401A926BB8008F8B5B /* UsersCollectionViewController.m in Sources */,
 				81111E101A92C69E004B878D /* ProfileViewController.m in Sources */,
 				81113AA61A8FB9E700F07E78 /* RegisterViewController.m in Sources */,
-				810AD94B1A90110200B7B2B5 /* UserManager.m in Sources */,
+				810AD94B1A90110200B7B2B5 /* UserControl.m in Sources */,
 				81A9E3F41A91809C00B4F52E /* TimelineViewController.m in Sources */,
 				8135FC471A926FDF008F8B5B /* AsyncImageView.m in Sources */,
 				81156A8A1A93F96C0001A1B6 /* Tweet.m in Sources */,
@@ -431,7 +431,7 @@
 				81113A561A8FB4D700F07E78 /* main.m in Sources */,
 				8135FC431A926DCD008F8B5B /* UserCollectionViewCell.m in Sources */,
 				81A9E3E71A917D3F00B4F52E /* FavoritesViewController.m in Sources */,
-				81156A8D1A93F9810001A1B6 /* TweetManager.m in Sources */,
+				81156A8D1A93F9810001A1B6 /* TweetControl.m in Sources */,
 				81113AA91A8FC5B800F07E78 /* User.m in Sources */,
 				81113AA31A8FB9D600F07E78 /* LoginViewController.m in Sources */,
 			);
