@@ -8,7 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "TweetViewController.h"
+#import "User.h"
 
 @interface TimelineViewController : UITableViewController <TweetViewControllerDelegate>
+
+@property (strong) User *user;
 
 @end

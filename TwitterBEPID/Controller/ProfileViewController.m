@@ -7,6 +7,7 @@
 //
 
 #import "ProfileViewController.h"
+#import "TimelineViewController.h"
 #import "Common.h"
 #import "Util.h"
 
@@ -38,6 +39,10 @@
         [self.btnLogout setHidden:NO];
         
         [self.navigationController.toolbar setNeedsDisplay];
+    } else {
+        [self.btnMessage setHidden:NO];
+        [self.btnFollow setHidden:NO];
+        [self.btnLogout setHidden:YES];
     }
     
     self.title = self.user.username;
@@ -69,14 +74,16 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    TimelineViewController *controller = (TimelineViewController *)segue.destinationViewController;
+    
+    if (!self.user)
+        controller.user = [Util unarchiveObjectFromUserDefaultsWithKey:UD_USER_LOGGED];
+    else
+        controller.user = self.user;
 }
-*/
 
 @end

@@ -12,6 +12,7 @@
 #import "Util.h"
 #import "User.h"
 #import "TweetManager.h"
+#import "Tweet.h"
 
 @interface TimelineViewController () {
     NSArray *arrayTweets;
@@ -32,7 +33,7 @@
         arrayTweets = tweets;
         [self performSelectorOnMainThread:@selector(updateDataWithTweets) withObject:nil waitUntilDone:NO];
         
-    } fromUser:[Util unarchiveObjectFromUserDefaultsWithKey:UD_USER_LOGGED]];
+    } fromUser:self.user];
     
 }
 
@@ -47,7 +48,7 @@
 - (void)doneTweetViewController {
     [self dismissViewControllerAnimated:YES completion:nil];
     
-    [self.tableView reloadData];
+    [self loadData];
 }
 
 #pragma mark - Methods of UIViewController
@@ -60,11 +61,13 @@
         UIViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"login"];
         [self presentViewController:vc animated:YES completion:nil];
     }
-    else
-    {
-        User *user = [Util unarchiveObjectFromUserDefaultsWithKey:UD_USER_LOGGED];
-        NSLog(@"Full Name: %@", user.fullName);
-    }
+//    else
+//    {
+//        User *user = [Util unarchiveObjectFromUserDefaultsWithKey:UD_USER_LOGGED];
+//        NSLog(@"Full Name: %@", user.fullName);
+//    }
+//    
+//    [self loadData];
     
 }
 
@@ -84,26 +87,23 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return 0;
+    return [arrayTweets count];
 }
 
-/*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     
     // Configure the cell...
+    Tweet *tweet = [arrayTweets objectAtIndex:indexPath.row];
+    cell.textLabel.text = tweet.message;
     
     return cell;
 }
-*/
+
 
 /*
 // Override to support conditional editing of the table view.

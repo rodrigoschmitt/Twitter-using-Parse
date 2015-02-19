@@ -31,11 +31,11 @@
             <objects>
                 <tableViewController id="2in-nm-aD9" customClass="TimelineViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="5JY-ll-McM">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="393"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="ypA-wU-qW1">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="ypA-wU-qW1">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ypA-wU-qW1" id="uSn-Jf-sD5">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -419,9 +419,20 @@
                                     <action selector="logoutButtonPressed:" destination="68R-pg-jFc" eventType="touchUpInside" id="HXj-df-bwq"/>
                                 </connections>
                             </button>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HWX-tM-T1u">
+                                <rect key="frame" x="0.0" y="143" width="600" height="393"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="393" id="hGB-Wi-4TS"/>
+                                    <constraint firstAttribute="width" constant="600" id="yXl-c9-uhA"/>
+                                </constraints>
+                                <connections>
+                                    <segue destination="2in-nm-aD9" kind="embed" identifier="segueTimeLine" id="iyn-8e-PnS"/>
+                                </connections>
+                            </containerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="HWX-tM-T1u" secondAttribute="trailing" constant="-16" id="3Qq-mS-pGu"/>
                             <constraint firstItem="U5X-8U-4X0" firstAttribute="trailing" secondItem="5AL-IV-d9l" secondAttribute="trailingMargin" id="4oA-rs-lQP"/>
                             <constraint firstItem="U5X-8U-4X0" firstAttribute="top" secondItem="Ois-1O-ypr" secondAttribute="bottom" id="59o-22-kqX"/>
                             <constraint firstItem="Rpp-sE-SZe" firstAttribute="centerY" secondItem="Mfx-6D-tj7" secondAttribute="centerY" id="7la-Xu-7cW"/>
@@ -434,13 +445,16 @@
                             <constraint firstItem="wCy-ri-dT4" firstAttribute="leading" secondItem="3R7-Mf-XVU" secondAttribute="trailing" constant="8" id="V2T-fD-N2I"/>
                             <constraint firstItem="pMg-fA-JHg" firstAttribute="leading" secondItem="5AL-IV-d9l" secondAttribute="leadingMargin" id="cwK-Ov-5Rl"/>
                             <constraint firstItem="wCy-ri-dT4" firstAttribute="trailing" secondItem="5AL-IV-d9l" secondAttribute="trailingMargin" id="eoa-j9-wXR"/>
+                            <constraint firstItem="HWX-tM-T1u" firstAttribute="top" secondItem="tRp-xl-fN4" secondAttribute="bottom" constant="1" id="fo0-wl-vfP"/>
                             <constraint firstItem="pMg-fA-JHg" firstAttribute="top" secondItem="3R7-Mf-XVU" secondAttribute="bottom" constant="12" id="i2Z-Y7-WC6"/>
                             <constraint firstItem="Rpp-sE-SZe" firstAttribute="trailing" secondItem="5AL-IV-d9l" secondAttribute="trailingMargin" id="jji-VW-Vb3"/>
                             <constraint firstItem="tRp-xl-fN4" firstAttribute="leading" secondItem="5AL-IV-d9l" secondAttribute="leadingMargin" constant="-16" id="lHB-c0-fy4"/>
                             <constraint firstItem="3R7-Mf-XVU" firstAttribute="leading" secondItem="5AL-IV-d9l" secondAttribute="leadingMargin" id="ldI-xB-arl"/>
                             <constraint firstItem="3R7-Mf-XVU" firstAttribute="top" secondItem="ymN-fg-1H8" secondAttribute="bottom" constant="8" id="nOb-Xb-aKN"/>
+                            <constraint firstItem="Ryv-TU-0ub" firstAttribute="top" secondItem="HWX-tM-T1u" secondAttribute="bottom" id="q3U-kr-fvX"/>
                             <constraint firstItem="Ois-1O-ypr" firstAttribute="trailing" secondItem="5AL-IV-d9l" secondAttribute="trailingMargin" id="rFA-wx-yoR"/>
                             <constraint firstItem="wCy-ri-dT4" firstAttribute="top" secondItem="ymN-fg-1H8" secondAttribute="bottom" constant="8" id="svJ-4s-OQA"/>
+                            <constraint firstItem="HWX-tM-T1u" firstAttribute="leading" secondItem="5AL-IV-d9l" secondAttribute="leadingMargin" constant="-16" id="tff-4d-A1V"/>
                             <constraint firstItem="pMg-fA-JHg" firstAttribute="leading" secondItem="5AL-IV-d9l" secondAttribute="leadingMargin" id="wqU-xS-9vi"/>
                             <constraint firstAttribute="trailingMargin" secondItem="tRp-xl-fN4" secondAttribute="trailing" constant="-16" id="zRe-nx-ssM"/>
                         </constraints>
@@ -476,7 +490,8 @@
         <image name="btnMessage" width="288" height="77"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="aL4-Td-KjD"/>
+        <segue reference="iyn-8e-PnS"/>
         <segue reference="3uy-hb-CH7"/>
+        <segue reference="aL4-Td-KjD"/>
     </inferredMetricsTieBreakers>
 </document>

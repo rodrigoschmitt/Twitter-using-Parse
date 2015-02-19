@@ -14,7 +14,7 @@
 @implementation TweetManager
 
 - (void)saveTweetWithMessage:(NSString *)message fromUser:(User *)_user response:(void (^)(bool success))response {
-
+    
     PFObject *tweetObject = [PFObject objectWithClassName:@"Tweet"];
     [tweetObject setObject:message forKey:@"message"];
     
@@ -37,21 +37,35 @@
 }
 
 - (void)requestTweets:(void (^)(NSArray *tweets, NSError *error))response fromUser:(User *)_user {
-//    PFQuery *innerQuery = [PFQuery queryWithClassName:@"User"];
-//    [innerQuery whereKey:@"userName" equalTo:_user.username];
-//    
-//    PFQuery *query = [PFQuery queryWithClassName:@"Tweet"];
-//    [query whereKey:@"user" matchesQuery:innerQuery];
+    
+    // --- Retorno dos Tweets de quem estou seguindo
+    /*
+    NSArray *names = @[@"rodrigoandrade",
+                       @"douglasmachado",
+                       @"laurafranco"];
+    
+    
+    PFQuery *innerQuery = [PFQuery queryWithClassName:@"User"];
+    [innerQuery whereKey:@"userName"  containedIn:names];
+    
+    PFQuery *query = [PFQuery queryWithClassName:@"Tweet"];
+    [query whereKey:@"user" matchesQuery:innerQuery];
+    [query includeKey:@"userName"];
+    */
+    
+    
     
     
     
     PFQuery *query = [PFQuery queryWithClassName:@"Tweet"];
-//    [query selectKeys:@[@"User"]];
-//    [query includeKey:@"User.userName"];
-    [query orderByDescending:@"createdAt"];
-    
     if (_user)
         [query whereKey:@"user" equalTo:[PFObject objectWithoutDataWithClassName:@"User" objectId:_user.idUser]];
+    
+    
+    
+    
+    
+    [query orderByDescending:@"createdAt"];
     
     [query findObjectsInBackgroundWithBlock:^(NSArray *resultsTweets, NSError *error) {
         
@@ -63,43 +77,12 @@
             
             for (PFObject *resultTweet in resultsTweets)
             {
-                [resultTweet fetchIfNeeded];
-                
                 Tweet *tweet = [[Tweet alloc] init];
                 tweet.idTweet = resultTweet.objectId;
                 tweet.message = [resultTweet objectForKey:@"message"];
                 
-//                PFObject *xxUser = resultTweet[@"user"];
-//                
-//                [xxUser fetchIfNeededInBackgroundWithBlock:^(PFObject *post, NSError *error) {
-//                    NSString *title = post[@"userName"];
-//                    // do something with your title variable
-//                }];
-                
-                
-                PFRelation *relationUser = resultTweet[@"user"];
-                [[relationUser query] findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-                    if (error) {
-                        // There was an error
-                    } else {
-                        // objects has all the Posts the current user liked.
-                        NSLog(@"Aqui!");
-                    }
-                }];
-                
-                
-                
-                
-                
-                
                 
 //                PFRelation *relationUser = resultTweet[@"user"];
-//                PFQuery *query = [relationUser query];
-//                NSArray *array = [query findObjects];
-//                
-//                PFObject *objectUser = [array objectAtIndex:0];
-//                
-//                NSLog(@"UserName: %@", [[array objectAtIndex:0] objectForKey:@"userName"]);
 //                
 //                User *user = [[User alloc] init];
 //                user.idUser = objectUser.objectId;
