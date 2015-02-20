@@ -31,7 +31,7 @@
     }];
 }
 
-- (void)requestTweets:(void (^)(NSArray *tweets, NSError *error))response fromUser:(User *)_user {
+- (void)requestTweets:(void (^)(NSArray *tweets, NSError *error))response fromUser:(User *)fromUser {
     
     // --- Retorno dos Tweets de quem estou seguindo
     
@@ -47,17 +47,12 @@
     [query whereKey:@"user" matchesQuery:innerQuery];*/
     
     
-    
     PFQuery *query = [PFQuery queryWithClassName:@"Tweets"];
     
-    if (_user)
-        [query whereKey:@"user" equalTo:[PFObject objectWithoutDataWithClassName:@"Users" objectId:_user.idUser]];
+    if (fromUser)
+        [query whereKey:@"user" equalTo:[PFObject objectWithoutDataWithClassName:@"Users" objectId:fromUser.idUser]];
     
     [query orderByDescending:@"createdAt"];
-    
-//    [query includeKey:@"User"];
-    [query includeKey:@"username"];
-//    [query includeKey:@"User.profileImage"];
     
     [query findObjectsInBackgroundWithBlock:^(NSArray *resultsTweets, NSError *error) {
         
@@ -73,28 +68,24 @@
                 tweet.idTweet = resultTweet.objectId;
                 tweet.message = [resultTweet objectForKey:@"message"];
                 
-                PFObject *relationUser = resultTweet[@"fromUser"];
+                PFUser *pfUser = resultTweet[@"fromUser"];
                 
+                User *user = [[User alloc] init];
+                user.idUser = pfUser.objectId;
+                user.username = pfUser.username;
+                user.email = pfUser.email;
+                user.fullName = [pfUser objectForKey:@"fullName"];
+                user.about = [pfUser objectForKey:@"description"];
+                user.location = [pfUser objectForKey:@"location"];
+                user.url = [pfUser objectForKey:@"url"];
                 
-//                PFRelation *relationUser = resultTweet[@"user"];
-//
-//                User *user = [[User alloc] init];
-//                user.idUser = objectUser.objectId;
-//                user.username = [objectUser objectForKey:@"userName"];
-//                user.password = [objectUser objectForKey:@"password"];
-//                user.fullName = [objectUser objectForKey:@"fullName"];
-//                user.email = [objectUser objectForKey:@"email"];
-//                user.about = [objectUser objectForKey:@"description"];
-//                user.location = [objectUser objectForKey:@"location"];
-//                user.url = [objectUser objectForKey:@"url"];
-//                
-//                if ([objectUser objectForKey:@"profileImage"])
-//                {
-//                    PFFile *pfFile = [objectUser objectForKey:@"profileImage"];
-//                    user.profileImage = pfFile.url;
-//                }
-//                
-//                tweet.user = user;
+                if ([pfUser objectForKey:@"profileImage"])
+                {
+                    PFFile *pfFile = [pfUser objectForKey:@"profileImage"];
+                    user.profileImage = pfFile.url;
+                }
+                
+                tweet.user = user;
                 
                 [tweets addObject:tweet];
                 

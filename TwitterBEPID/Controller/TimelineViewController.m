@@ -100,6 +100,7 @@
     // Configure the cell...
     Tweet *tweet = [arrayTweets objectAtIndex:indexPath.row];
     cell.textLabel.text = tweet.message;
+//    cell.textLabel.text = tweet.user.username;
     
     return cell;
 }
