@@ -39,8 +39,8 @@
 - (void)requestTweets:(void (^)(NSArray *tweets, NSError *error))response fromUser:(User *)_user {
     
     // --- Retorno dos Tweets de quem estou seguindo
-    /*
-    NSArray *names = @[@"rodrigoandrade",
+    
+    /*NSArray *names = @[@"rodrigoandrade",
                        @"douglasmachado",
                        @"laurafranco"];
     
@@ -49,9 +49,7 @@
     [innerQuery whereKey:@"userName"  containedIn:names];
     
     PFQuery *query = [PFQuery queryWithClassName:@"Tweet"];
-    [query whereKey:@"user" matchesQuery:innerQuery];
-    [query includeKey:@"userName"];
-    */
+    [query whereKey:@"user" matchesQuery:innerQuery];*/
     
     
     
@@ -61,8 +59,10 @@
         [query whereKey:@"user" equalTo:[PFObject objectWithoutDataWithClassName:@"User" objectId:_user.idUser]];
     
     [query orderByDescending:@"createdAt"];
+
+     [query selectKeys: @[ @"User.userName" ]];
     
-    [query includeKey:@"User"];
+//    [query includeKey:@"User"];
 //    [query includeKey:@"User.userName"];
 //    [query includeKey:@"User.profileImage"];
     
@@ -80,7 +80,7 @@
                 tweet.idTweet = resultTweet.objectId;
                 tweet.message = [resultTweet objectForKey:@"message"];
                 
-                PFObject *relationUser = resultTweet[@"parent"];
+//                PFObject *relationUser = resultTweet[@"parent"];
                 
                 
 //                PFRelation *relationUser = resultTweet[@"user"];
