@@ -26,8 +26,8 @@
 
 - (void)loginUser:(User *)_user response:(void (^)(bool success))response {
     
-    PFQuery *userQuery = [PFQuery queryWithClassName:@"User"];
-    [userQuery whereKey:@"userName" equalTo:_user.username];
+    PFQuery *userQuery = [PFQuery queryWithClassName:@"Users"];
+    [userQuery whereKey:@"username" equalTo:_user.username];
     [userQuery whereKey:@"password" equalTo:_user.password];
     
     [userQuery getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
@@ -58,9 +58,8 @@
 }
 
 - (void)registerUser:(User *)_user profileImage:(UIImage *)profileImage {
-    
-    PFObject *registerUserObj = [PFObject objectWithClassName:@"User"];
-    registerUserObj[@"userName"] = _user.username;
+    PFObject *registerUserObj = [PFObject objectWithClassName:@"Users"];
+    registerUserObj[@"username"] = _user.username;
     registerUserObj[@"fullName"] = _user.fullName;
     registerUserObj[@"email"] = _user.email;
     registerUserObj[@"description"] = _user.about;
@@ -83,10 +82,10 @@
 
 - (void)requestUsers:(void (^)(NSArray *users, NSError *error))response userExcluded:(User *)_user {
     
-    PFQuery *usersQuery = [PFQuery queryWithClassName:@"User"];
+    PFQuery *usersQuery = [PFQuery queryWithClassName:@"Users"];
     [usersQuery orderByDescending:@"createdAt"];
     if (_user)
-        [usersQuery whereKey:@"userName" notEqualTo:_user.username];
+        [usersQuery whereKey:@"username" notEqualTo:_user.username];
     
     [usersQuery findObjectsInBackgroundWithBlock:^(NSArray *resultsUsers, NSError *error) {
         
@@ -100,7 +99,7 @@
             {
                 User *user = [[User alloc] init];
                 user.idUser = resultUser.objectId;
-                user.username = [resultUser objectForKey:@"userName"];
+                user.username = [resultUser objectForKey:@"username"];
                 user.password = [resultUser objectForKey:@"password"];
                 user.fullName = [resultUser objectForKey:@"fullName"];
                 user.email = [resultUser objectForKey:@"email"];

@@ -15,11 +15,13 @@
 
 - (void)saveTweetWithMessage:(NSString *)message fromUser:(User *)_user response:(void (^)(bool success))response {
     
-    PFObject *tweetObject = [PFObject objectWithClassName:@"Tweet"];
+    PFObject *tweetObject = [PFObject objectWithClassName:@"Tweets"];
     [tweetObject setObject:message forKey:@"message"];
     
-    PFRelation *relation = [tweetObject relationForKey:@"user"];
-    [relation addObject:[PFObject objectWithoutDataWithClassName:@"User" objectId:_user.idUser]];
+    [tweetObject setObject:[PFObject objectWithoutDataWithClassName:@"Users" objectId:_user.idUser] forKey:@"user"];
+    
+//    PFRelation *relation = [tweetObject relationForKey:@"user"];
+//    [relation addObject:[PFObject objectWithoutDataWithClassName:@"Users" objectId:_user.idUser]];
     
     [tweetObject saveInBackgroundWithBlock:^(BOOL Succeed, NSError *error) {
         
@@ -53,17 +55,15 @@
     
     
     
-    PFQuery *query = [PFQuery queryWithClassName:@"Tweet"];
+    PFQuery *query = [PFQuery queryWithClassName:@"Tweets"];
     
     if (_user)
-        [query whereKey:@"user" equalTo:[PFObject objectWithoutDataWithClassName:@"User" objectId:_user.idUser]];
+        [query whereKey:@"user" equalTo:[PFObject objectWithoutDataWithClassName:@"Users" objectId:_user.idUser]];
     
     [query orderByDescending:@"createdAt"];
-
-     [query selectKeys: @[ @"User.userName" ]];
     
 //    [query includeKey:@"User"];
-//    [query includeKey:@"User.userName"];
+    [query includeKey:@"username"];
 //    [query includeKey:@"User.profileImage"];
     
     [query findObjectsInBackgroundWithBlock:^(NSArray *resultsTweets, NSError *error) {
@@ -80,7 +80,7 @@
                 tweet.idTweet = resultTweet.objectId;
                 tweet.message = [resultTweet objectForKey:@"message"];
                 
-//                PFObject *relationUser = resultTweet[@"parent"];
+                PFObject *relationUser = resultTweet[@"user"];
                 
                 
 //                PFRelation *relationUser = resultTweet[@"user"];
