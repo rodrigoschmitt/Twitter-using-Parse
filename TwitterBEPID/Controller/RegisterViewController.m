@@ -23,7 +23,6 @@
 #pragma mark - Methods of UIButton (IBAction)
 
 - (IBAction)nextButtonPressed:(UIButton *)sender {
-    
     UIView *subView = [_scrollView viewWithTag:sender.tag + 1];
     
     if ([subView isKindOfClass:[UITextField class]])
@@ -34,19 +33,7 @@
 
 - (IBAction)finishButtonPressed:(UIButton *)sender {
     
-    User *user = [[User alloc] init];
-    user.username = self.txtUserName.text;
-    user.fullName = self.txtFullName.text;
-    user.email = self.txtEmail.text;
-    user.about = self.txtAbout.text;
-    user.location = self.txtLocation.text;
-    user.url = self.txtUrl.text;
-    user.password = self.txtPassword.text;
-    
-    UserControl *userControl = [[UserControl alloc] init];
-    [userControl registerUser:user profileImage:self.imgProfile.image];
-    
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [self signupUser];
     
 }
 
@@ -57,6 +44,45 @@
                                                            destructiveButtonTitle:nil
                                                                 otherButtonTitles:@"Take photo", @"Choose existing", nil];
     [actionButtonActionSheet showInView:self.view];
+}
+
+#pragma mark - Methods Signup user
+
+- (void)signupUser {
+    User *user = [[User alloc] init];
+    user.username = self.txtUserName.text;
+    user.fullName = self.txtFullName.text;
+    user.email = self.txtEmail.text;
+    user.about = self.txtAbout.text;
+    user.location = self.txtLocation.text;
+    user.url = self.txtUrl.text;
+    user.password = self.txtPassword.text;
+    
+    UserControl *userControl = [[UserControl alloc] init];
+    [userControl signupUser:user profileImage:self.imgProfile.image response:^(BOOL success, NSError *error) {
+        
+        if (success) {
+            [self performSelectorOnMainThread:@selector(successfulRegistration) withObject:nil waitUntilDone:NO];
+        } else {
+            [self performSelectorOnMainThread:@selector(errorRequestLogin) withObject:nil waitUntilDone:NO];
+        }
+        
+    }];
+}
+
+- (void)successfulRegistration {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)errorRequestLogin {
+    
+    [self alertWithTitle:@"Fail" message:@"Something is wrong, try later!"];
+    
+}
+
+- (void)alertWithTitle:(NSString *)_alertTitle message:(NSString *)_alertMessage {
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:_alertTitle message:_alertMessage delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    [alert show];
 }
 
 #pragma mark - Methods for Profile Image

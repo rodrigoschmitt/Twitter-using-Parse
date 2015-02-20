@@ -13,15 +13,11 @@
 
 @implementation TweetControl
 
-- (void)saveTweetWithMessage:(NSString *)message fromUser:(User *)_user response:(void (^)(bool success))response {
+- (void)saveTweetWithMessage:(NSString *)message fromUser:(User *)user response:(void (^)(bool success))response {
     
     PFObject *tweetObject = [PFObject objectWithClassName:@"Tweets"];
     [tweetObject setObject:message forKey:@"message"];
-    
-    [tweetObject setObject:[PFObject objectWithoutDataWithClassName:@"Users" objectId:_user.idUser] forKey:@"user"];
-    
-//    PFRelation *relation = [tweetObject relationForKey:@"user"];
-//    [relation addObject:[PFObject objectWithoutDataWithClassName:@"Users" objectId:_user.idUser]];
+    [tweetObject setObject:[PFUser objectWithoutDataWithObjectId:user.idUser] forKey:@"fromUser"];
     
     [tweetObject saveInBackgroundWithBlock:^(BOOL Succeed, NSError *error) {
         
@@ -30,9 +26,6 @@
             
             response(NO);
         } else {
-            
-            NSLog(@"Salvo!");
-            
             response(YES);
         }
     }];
@@ -80,7 +73,7 @@
                 tweet.idTweet = resultTweet.objectId;
                 tweet.message = [resultTweet objectForKey:@"message"];
                 
-                PFObject *relationUser = resultTweet[@"user"];
+                PFObject *relationUser = resultTweet[@"fromUser"];
                 
                 
 //                PFRelation *relationUser = resultTweet[@"user"];

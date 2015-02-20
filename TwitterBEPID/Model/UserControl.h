@@ -15,8 +15,8 @@
 
 + (UserControl *) singleton;
 
+- (void)signupUser:(User *)userSignup profileImage:(UIImage *)profileImage response:(void (^)(BOOL success, NSError *error))response;
 - (void)loginUser:(User *)_user response:(void (^)(bool success))response;
-- (void)registerUser:(User *)_user profileImage:(UIImage *)profileImage;
 - (void)requestUsers:(void (^)(NSArray *users, NSError *error))response userExcluded:(User *)_user;
 
 @end

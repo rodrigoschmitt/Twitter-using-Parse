@@ -29,7 +29,12 @@
 }
 
 - (IBAction)loginButtonPressed:(UIButton *)sender {
-    
+    [self loginUser];
+}
+
+#pragma mark - Methods Login user
+
+- (void)loginUser {
     User *user = [[User alloc] init];
     user.username = self.txtUsername.text;
     user.password = self.txtPassword.text;
@@ -37,11 +42,10 @@
     [[UserControl singleton] loginUser:user response:^(bool success) {
         
         if (success) {
-            
             // Save User Object in NSUserDefaults
             [Util archiveAndSaveObject:user toUserDefaultsWithKey:UD_USER_LOGGED];
             
-            [self performSelectorOnMainThread:@selector(closeLogin) withObject:nil waitUntilDone:NO];
+            [self performSelectorOnMainThread:@selector(successfulLogin) withObject:nil waitUntilDone:NO];
             
         } else {
             
@@ -51,9 +55,7 @@
     }];
 }
 
-#pragma mark - Custom Methods
-
-- (void)closeLogin {
+- (void)successfulLogin {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
@@ -64,9 +66,15 @@
 }
 
 - (void)alertWithTitle:(NSString *)_alertTitle message:(NSString *)_alertMessage {
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:_alertTitle message:_alertMessage delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:_alertTitle
+                                                    message:_alertMessage
+                                                   delegate:nil
+                                          cancelButtonTitle:@"OK"
+                                          otherButtonTitles:nil];
     [alert show];
 }
+
+#pragma mark - Custom Methods
 
 - (void)keyboardWasShown {
     [_scrollView setContentOffset:CGPointMake(0.0, _activeField.frame.origin.y - kOFFSET_FOR_KEYBOARD) animated:YES];

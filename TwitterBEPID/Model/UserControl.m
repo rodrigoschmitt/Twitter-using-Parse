@@ -22,61 +22,63 @@
     return instance;
 }
 
-#pragma Mark - API Parse for WebService
+#pragma Mark - API Parse
 
-- (void)loginUser:(User *)_user response:(void (^)(bool success))response {
+- (void)signupUser:(User *)userSignup profileImage:(UIImage *)profileImage response:(void (^)(BOOL success, NSError *error))response {
     
-    PFQuery *userQuery = [PFQuery queryWithClassName:@"Users"];
-    [userQuery whereKey:@"username" equalTo:_user.username];
-    [userQuery whereKey:@"password" equalTo:_user.password];
+    PFUser *user = [PFUser user];
+    user.username = userSignup.username;
+    user.password = userSignup.password;
+    user.email = userSignup.email;
+    user[@"fullName"] = userSignup.username;
+    user[@"description"] = userSignup.about;
+    user[@"location"] = userSignup.location;
+    user[@"url"] = userSignup.url;
     
-    [userQuery getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
+    if (profileImage)
+    {
+        NSData *imageData = UIImageJPEGRepresentation(profileImage, 0.6);
+        PFFile *imageFile = [PFFile fileWithName:[NSString stringWithFormat:@"%@.jpg", userSignup.username]
+                                            data:imageData];
+        user[@"profileImage"] = imageFile;
+    }
+    
+    [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         
-        if (!object) {
-            NSLog(@"Error message: %@", error.description);
-            
-            response(NO);
-        } else {
-            _user.idUser = object.objectId;
-            _user.fullName = [object objectForKey:@"fullName"];
-            _user.email = [object objectForKey:@"email"];
-            _user.about = [object objectForKey:@"description"];
-            _user.location = [object objectForKey:@"location"];
-            _user.url = [object objectForKey:@"url"];
-            
-            if ([object objectForKey:@"profileImage"])
-            {
-                PFFile *pfFile = [object objectForKey:@"profileImage"];
-                _user.profileImage = pfFile.url;
-            }
-            
-            response(YES);
-        }
+        response(succeeded, error);
         
     }];
     
 }
 
-- (void)registerUser:(User *)_user profileImage:(UIImage *)profileImage {
-    PFObject *registerUserObj = [PFObject objectWithClassName:@"Users"];
-    registerUserObj[@"username"] = _user.username;
-    registerUserObj[@"fullName"] = _user.fullName;
-    registerUserObj[@"email"] = _user.email;
-    registerUserObj[@"description"] = _user.about;
-    registerUserObj[@"location"] = _user.location;
-    registerUserObj[@"url"] = _user.url;
-    registerUserObj[@"password"] = _user.password;
-    
-    if (profileImage)
-    {
-        NSData *imageData = UIImageJPEGRepresentation(profileImage, 0.6);
-        PFFile *imageFile = [PFFile fileWithName:[NSString stringWithFormat:@"%@.jpg", _user.username]
-                                            data:imageData];
-        registerUserObj[@"profileImage"] = imageFile;
-    }
-    
-    
-    [registerUserObj saveInBackground];
+- (void)loginUser:(User *)userLogin response:(void (^)(bool success))response {
+   
+    [PFUser logInWithUsernameInBackground:userLogin.username
+                                 password:userLogin.password
+                                    block:^(PFUser *user, NSError *error) {
+                                        if (user) {
+                                            
+                                            userLogin.idUser = user.objectId;
+                                            userLogin.fullName = [user objectForKey:@"fullName"];
+                                            userLogin.email = user.email;
+                                            userLogin.about = [user objectForKey:@"description"];
+                                            userLogin.location = [user objectForKey:@"location"];
+                                            userLogin.url = [user objectForKey:@"url"];
+                                            
+                                            if ([user objectForKey:@"profileImage"])
+                                            {
+                                                PFFile *pfFile = [user objectForKey:@"profileImage"];
+                                                userLogin.profileImage = pfFile.url;
+                                            }
+                                            
+                                            response(YES);
+                                            
+                                        } else {
+                                            NSLog(@"Error message: %@", error.description);
+                                            
+                                            response(NO);
+                                        }
+                                    }];
     
 }
 
