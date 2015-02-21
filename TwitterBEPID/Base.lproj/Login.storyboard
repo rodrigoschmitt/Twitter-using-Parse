@@ -17,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Lgb-AJ-DAG">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lgb-AJ-DAG">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Twitter_logo_blue" translatesAutoresizingMaskIntoConstraints="NO" id="Oao-xP-LhX">
@@ -75,6 +75,8 @@
                                     <constraint firstItem="An4-Ft-R5y" firstAttribute="top" secondItem="F7M-KU-VTE" secondAttribute="bottom" constant="18" id="750-Z1-OfQ"/>
                                     <constraint firstItem="vdc-Xc-ahl" firstAttribute="centerX" secondItem="5fH-Tt-5kS" secondAttribute="centerX" id="7pU-k2-g33"/>
                                     <constraint firstItem="An4-Ft-R5y" firstAttribute="centerX" secondItem="F7M-KU-VTE" secondAttribute="centerX" id="8Mi-HY-uvi"/>
+                                    <constraint firstAttribute="trailing" secondItem="Oao-xP-LhX" secondAttribute="trailing" constant="173" id="9b7-b6-jOQ"/>
+                                    <constraint firstAttribute="bottom" secondItem="An4-Ft-R5y" secondAttribute="bottom" constant="148" id="ACo-R7-baF"/>
                                     <constraint firstItem="Oao-xP-LhX" firstAttribute="top" secondItem="Lgb-AJ-DAG" secondAttribute="top" constant="23" id="Abx-f8-5uj"/>
                                     <constraint firstAttribute="centerX" secondItem="Oao-xP-LhX" secondAttribute="centerX" id="R1o-cy-C23"/>
                                     <constraint firstItem="vdc-Xc-ahl" firstAttribute="top" secondItem="5fH-Tt-5kS" secondAttribute="bottom" constant="8" id="TpP-2j-lpZ"/>
@@ -114,7 +116,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Am-5X-c65">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Am-5X-c65">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cjL-YW-pbn">

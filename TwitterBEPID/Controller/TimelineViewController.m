@@ -25,7 +25,7 @@
 
 #pragma mark - Custom Methods
 
-- (void)loadData {
+- (void)loadData:(UIRefreshControl *)refreshControl {
     
     TweetControl *tweetControl = [[TweetControl alloc] init];
     
@@ -36,6 +36,8 @@
         
     } fromUser:self.user];
     
+    if (refreshControl)
+        [refreshControl endRefreshing];
 }
 
 - (void)favoriteThisTweet:(Tweet *)tweet {
@@ -65,7 +67,7 @@
 - (void)doneTweetViewController {
     [self dismissViewControllerAnimated:YES completion:nil];
     
-    [self loadData];
+    [self loadData:nil];
 }
 
 #pragma mark - Methods of UIViewController
@@ -93,7 +95,11 @@
     
     self.title = @"Timeline";
     
-    [self loadData];
+    UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
+    [refreshControl addTarget:self action:@selector(loadData:) forControlEvents:UIControlEventValueChanged];
+    [self.tableView addSubview:refreshControl];
+    
+    [self loadData:nil];
 }
 
 - (void)didReceiveMemoryWarning {
