@@ -37,9 +37,25 @@
     
 }
 
+- (void)favoriteThisTweet:(Tweet *)tweet {
+    
+    TweetControl *tweetControl = [[TweetControl alloc] init];
+    
+    [tweetControl favoriteThisTweet:[arrayTweets objectAtIndex:0] fromUser:[Util unarchiveObjectFromUserDefaultsWithKey:UD_USER_LOGGED] response:^(bool success) {
+        
+        if (success)
+        {
+            NSLog(@"Salvo com sucesso!");
+        }
+    }];
+    
+}
+
 - (void)updateDataWithTweets {
     
     [self.tableView reloadData];
+    
+    [self favoriteThisTweet:nil];
     
 }
 

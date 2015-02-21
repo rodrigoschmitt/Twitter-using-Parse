@@ -256,7 +256,6 @@
 				81129FC61A981C2800625F22 /* User */,
 				81129FCA1A981C8B00625F22 /* Follow */,
 				81129FC71A981C3C00625F22 /* Tweet */,
-				81129FC81A981C4A00625F22 /* Favorites */,
 				81129FC91A981C7200625F22 /* Message */,
 			);
 			name = Model;
@@ -282,13 +281,6 @@
 				81156A8C1A93F9810001A1B6 /* TweetControl.m */,
 			);
 			name = Tweet;
-			sourceTree = "<group>";
-		};
-		81129FC81A981C4A00625F22 /* Favorites */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Favorites;
 			sourceTree = "<group>";
 		};
 		81129FC91A981C7200625F22 /* Message */ = {

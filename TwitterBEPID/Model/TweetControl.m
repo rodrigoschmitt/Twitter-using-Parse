@@ -9,15 +9,14 @@
 #import "TweetControl.h"
 #import "Common.h"
 #import <Parse/Parse.h>
-#import "Tweet.h"
 
 @implementation TweetControl
 
-- (void)saveTweetWithMessage:(NSString *)message fromUser:(User *)user response:(void (^)(bool success))response {
+- (void)saveTweetWithMessage:(NSString *)message fromUser:(User *)fromUser response:(void (^)(bool success))response {
     
     PFObject *tweetObject = [PFObject objectWithClassName:@"Tweets"];
     [tweetObject setObject:message forKey:@"message"];
-    [tweetObject setObject:[PFUser objectWithoutDataWithObjectId:user.idUser] forKey:@"fromUser"];
+    [tweetObject setObject:[PFUser objectWithoutDataWithObjectId:fromUser.idUser] forKey:@"fromUser"];
     
     [tweetObject saveInBackgroundWithBlock:^(BOOL Succeed, NSError *error) {
         
@@ -29,6 +28,25 @@
             response(YES);
         }
     }];
+}
+
+- (void)favoriteThisTweet:(Tweet *)tweet fromUser:(User *)fromUser response:(void (^)(bool success))response {
+    
+    PFObject *tweetObject = [PFObject objectWithClassName:@"Favorite"];
+    [tweetObject setObject:[PFObject objectWithoutDataWithClassName:@"Tweets" objectId:tweet.idTweet] forKey:@"tweet"];
+    [tweetObject setObject:[PFUser objectWithoutDataWithObjectId:fromUser.idUser] forKey:@"fromUser"];
+    
+    [tweetObject saveInBackgroundWithBlock:^(BOOL Succeed, NSError *error) {
+        
+        if (!Succeed) {
+            NSLog(@"Error message: %@", error.description);
+            
+            response(NO);
+        } else {
+            response(YES);
+        }
+    }];
+    
 }
 
 - (void)requestTweets:(void (^)(NSArray *tweets, NSError *error))response fromUser:(User *)fromUser {
