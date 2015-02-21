@@ -83,9 +83,9 @@
 }
 
 - (void)requestUsers:(void (^)(NSArray *users, NSError *error))response userExcluded:(User *)_user {
-    
-    PFQuery *usersQuery = [PFQuery queryWithClassName:@"Users"];
+    PFQuery *usersQuery = [PFUser query];
     [usersQuery orderByDescending:@"createdAt"];
+
     if (_user)
         [usersQuery whereKey:@"username" notEqualTo:_user.username];
     
@@ -102,7 +102,6 @@
                 User *user = [[User alloc] init];
                 user.idUser = resultUser.objectId;
                 user.username = [resultUser objectForKey:@"username"];
-                user.password = [resultUser objectForKey:@"password"];
                 user.fullName = [resultUser objectForKey:@"fullName"];
                 user.email = [resultUser objectForKey:@"email"];
                 user.about = [resultUser objectForKey:@"description"];

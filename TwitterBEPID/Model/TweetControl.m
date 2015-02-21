@@ -50,9 +50,10 @@
     PFQuery *query = [PFQuery queryWithClassName:@"Tweets"];
     
     if (fromUser)
-        [query whereKey:@"user" equalTo:[PFObject objectWithoutDataWithClassName:@"Users" objectId:fromUser.idUser]];
+        [query whereKey:@"fromUser" equalTo:[PFUser objectWithoutDataWithObjectId:fromUser.idUser]];
     
     [query orderByDescending:@"createdAt"];
+    [query includeKey:@"fromUser"];
     
     [query findObjectsInBackgroundWithBlock:^(NSArray *resultsTweets, NSError *error) {
         
