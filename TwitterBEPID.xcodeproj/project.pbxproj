@@ -34,6 +34,7 @@
 		81113AA91A8FC5B800F07E78 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 81113AA81A8FC5B800F07E78 /* User.m */; };
 		81156A8A1A93F96C0001A1B6 /* Tweet.m in Sources */ = {isa = PBXBuildFile; fileRef = 81156A891A93F96C0001A1B6 /* Tweet.m */; };
 		81156A8D1A93F9810001A1B6 /* TweetControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 81156A8C1A93F9810001A1B6 /* TweetControl.m */; };
+		812150C21A990AA2001FD8EA /* TimelineTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 812150C11A990AA2001FD8EA /* TimelineTableViewCell.m */; };
 		8135FC3D1A924E62008F8B5B /* Util.m in Sources */ = {isa = PBXBuildFile; fileRef = 8135FC3C1A924E62008F8B5B /* Util.m */; };
 		8135FC401A926BB8008F8B5B /* UsersCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8135FC3F1A926BB8008F8B5B /* UsersCollectionViewController.m */; };
 		8135FC431A926DCD008F8B5B /* UserCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8135FC421A926DCD008F8B5B /* UserCollectionViewCell.m */; };
@@ -95,6 +96,8 @@
 		81156A891A93F96C0001A1B6 /* Tweet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Tweet.m; path = Model/Tweet.m; sourceTree = "<group>"; };
 		81156A8B1A93F9810001A1B6 /* TweetControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TweetControl.h; path = Model/TweetControl.h; sourceTree = "<group>"; };
 		81156A8C1A93F9810001A1B6 /* TweetControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TweetControl.m; path = Model/TweetControl.m; sourceTree = "<group>"; };
+		812150C01A990AA2001FD8EA /* TimelineTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TimelineTableViewCell.h; path = Controller/TimelineTableViewCell.h; sourceTree = "<group>"; };
+		812150C11A990AA2001FD8EA /* TimelineTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TimelineTableViewCell.m; path = Controller/TimelineTableViewCell.m; sourceTree = "<group>"; };
 		8135FC3B1A924E62008F8B5B /* Util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Util.h; sourceTree = "<group>"; };
 		8135FC3C1A924E62008F8B5B /* Util.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Util.m; sourceTree = "<group>"; };
 		8135FC3E1A926BB8008F8B5B /* UsersCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UsersCollectionViewController.h; path = Controller/UsersCollectionViewController.h; sourceTree = "<group>"; };
@@ -339,6 +342,8 @@
 			children = (
 				81A9E3F21A91809C00B4F52E /* TimelineViewController.h */,
 				81A9E3F31A91809C00B4F52E /* TimelineViewController.m */,
+				812150C01A990AA2001FD8EA /* TimelineTableViewCell.h */,
+				812150C11A990AA2001FD8EA /* TimelineTableViewCell.m */,
 				81A9E3EE1A917D8D00B4F52E /* TweetViewController.h */,
 				81A9E3EF1A917D8D00B4F52E /* TweetViewController.m */,
 				81A9E3E51A917D3F00B4F52E /* FavoritesViewController.h */,
@@ -456,6 +461,7 @@
 				81113AA61A8FB9E700F07E78 /* RegisterViewController.m in Sources */,
 				810AD94B1A90110200B7B2B5 /* UserControl.m in Sources */,
 				81A9E3F41A91809C00B4F52E /* TimelineViewController.m in Sources */,
+				812150C21A990AA2001FD8EA /* TimelineTableViewCell.m in Sources */,
 				8135FC471A926FDF008F8B5B /* AsyncImageView.m in Sources */,
 				81156A8A1A93F96C0001A1B6 /* Tweet.m in Sources */,
 				819A11971A93D42F00B254FE /* Message.m in Sources */,

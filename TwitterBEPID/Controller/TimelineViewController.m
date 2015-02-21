@@ -8,6 +8,7 @@
 
 #import "TimelineViewController.h"
 #import "TweetViewController.h"
+#import "TimelineTableViewCell.h"
 #import "Common.h"
 #import "Util.h"
 #import "User.h"
@@ -55,7 +56,7 @@
     
     [self.tableView reloadData];
     
-    [self favoriteThisTweet:nil];
+//    [self favoriteThisTweet:nil];
     
 }
 
@@ -111,14 +112,19 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+    TimelineTableViewCell * tweetCell = [tableView dequeueReusableCellWithIdentifier:@"TweetCell" forIndexPath:indexPath];
+    [tweetCell configCell];
     
-    // Configure the cell...
     Tweet *tweet = [arrayTweets objectAtIndex:indexPath.row];
-    cell.textLabel.text = tweet.message;
-//    cell.textLabel.text = tweet.user.username;
     
-    return cell;
+    tweetCell.lblFullname.text = tweet.user.fullName;
+    tweetCell.lblUsername.text = [NSString stringWithFormat:@"@%@", tweet.user.username];
+    tweetCell.lblTweet.text = tweet.message;
+    
+    if (tweet.user.profileImage)
+        tweetCell.imgProfile.imageURL = [NSURL URLWithString:tweet.user.profileImage];
+    
+    return tweetCell;
 }
 
 

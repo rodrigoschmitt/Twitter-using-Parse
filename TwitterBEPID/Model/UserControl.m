@@ -30,7 +30,7 @@
     user.username = userSignup.username;
     user.password = userSignup.password;
     user.email = userSignup.email;
-    user[@"fullName"] = userSignup.username;
+    user[@"fullName"] = userSignup.fullName;
     user[@"description"] = userSignup.about;
     user[@"location"] = userSignup.location;
     user[@"url"] = userSignup.url;
