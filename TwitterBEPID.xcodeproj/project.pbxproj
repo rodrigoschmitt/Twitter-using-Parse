@@ -253,18 +253,58 @@
 		81113AA01A8FB98D00F07E78 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				81129FC61A981C2800625F22 /* User */,
+				81129FCA1A981C8B00625F22 /* Follow */,
+				81129FC71A981C3C00625F22 /* Tweet */,
+				81129FC81A981C4A00625F22 /* Favorites */,
+				81129FC91A981C7200625F22 /* Message */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		81129FC61A981C2800625F22 /* User */ = {
+			isa = PBXGroup;
+			children = (
 				81113AA71A8FC5B800F07E78 /* User.h */,
 				81113AA81A8FC5B800F07E78 /* User.m */,
 				810AD9491A90110200B7B2B5 /* UserControl.h */,
 				810AD94A1A90110200B7B2B5 /* UserControl.m */,
+			);
+			name = User;
+			sourceTree = "<group>";
+		};
+		81129FC71A981C3C00625F22 /* Tweet */ = {
+			isa = PBXGroup;
+			children = (
 				81156A881A93F96C0001A1B6 /* Tweet.h */,
 				81156A891A93F96C0001A1B6 /* Tweet.m */,
 				81156A8B1A93F9810001A1B6 /* TweetControl.h */,
 				81156A8C1A93F9810001A1B6 /* TweetControl.m */,
+			);
+			name = Tweet;
+			sourceTree = "<group>";
+		};
+		81129FC81A981C4A00625F22 /* Favorites */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Favorites;
+			sourceTree = "<group>";
+		};
+		81129FC91A981C7200625F22 /* Message */ = {
+			isa = PBXGroup;
+			children = (
 				819A11951A93D42F00B254FE /* Message.h */,
 				819A11961A93D42F00B254FE /* Message.m */,
 			);
-			name = Model;
+			name = Message;
+			sourceTree = "<group>";
+		};
+		81129FCA1A981C8B00625F22 /* Follow */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Follow;
 			sourceTree = "<group>";
 		};
 		8135FC441A926FD5008F8B5B /* AsyncImageView */ = {
