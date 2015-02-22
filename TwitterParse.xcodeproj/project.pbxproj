@@ -61,7 +61,7 @@
 		810AD94A1A90110200B7B2B5 /* UserControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserControl.m; path = Model/UserControl.m; sourceTree = "<group>"; };
 		81111E0E1A92C69E004B878D /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProfileViewController.h; path = Controller/ProfileViewController.h; sourceTree = "<group>"; };
 		81111E0F1A92C69E004B878D /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProfileViewController.m; path = Controller/ProfileViewController.m; sourceTree = "<group>"; };
-		81113A501A8FB4D700F07E78 /* TwitterBEPID.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TwitterBEPID.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		81113A501A8FB4D700F07E78 /* TwitterParse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TwitterParse.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		81113A541A8FB4D700F07E78 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		81113A551A8FB4D700F07E78 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		81113A571A8FB4D700F07E78 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -69,7 +69,7 @@
 		81113A611A8FB4D700F07E78 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		81113A631A8FB4D700F07E78 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		81113A661A8FB4D700F07E78 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		81113A6C1A8FB4D700F07E78 /* TwitterBEPIDTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TwitterBEPIDTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		81113A6C1A8FB4D700F07E78 /* TwitterParseTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TwitterParseTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		81113A711A8FB4D700F07E78 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		81113A721A8FB4D700F07E78 /* TwitterBEPIDTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TwitterBEPIDTests.m; sourceTree = "<group>"; };
 		81113A7F1A8FB59A00F07E78 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
@@ -153,8 +153,8 @@
 		81113A471A8FB4D700F07E78 = {
 			isa = PBXGroup;
 			children = (
-				81113A521A8FB4D700F07E78 /* TwitterBEPID */,
-				81113A6F1A8FB4D700F07E78 /* TwitterBEPIDTests */,
+				81113A521A8FB4D700F07E78 /* TwitterParse */,
+				81113A6F1A8FB4D700F07E78 /* TwitterParseTests */,
 				81113A7E1A8FB56900F07E78 /* Frameworks */,
 				81113A511A8FB4D700F07E78 /* Products */,
 			);
@@ -163,13 +163,13 @@
 		81113A511A8FB4D700F07E78 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				81113A501A8FB4D700F07E78 /* TwitterBEPID.app */,
-				81113A6C1A8FB4D700F07E78 /* TwitterBEPIDTests.xctest */,
+				81113A501A8FB4D700F07E78 /* TwitterParse.app */,
+				81113A6C1A8FB4D700F07E78 /* TwitterParseTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		81113A521A8FB4D700F07E78 /* TwitterBEPID */ = {
+		81113A521A8FB4D700F07E78 /* TwitterParse */ = {
 			isa = PBXGroup;
 			children = (
 				816230461A910E6000110ABA /* Common.h */,
@@ -183,6 +183,7 @@
 				81113A9F1A8FB98200F07E78 /* Controller */,
 				81113A531A8FB4D700F07E78 /* Supporting Files */,
 			);
+			name = TwitterParse;
 			path = TwitterBEPID;
 			sourceTree = "<group>";
 		};
@@ -196,12 +197,13 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		81113A6F1A8FB4D700F07E78 /* TwitterBEPIDTests */ = {
+		81113A6F1A8FB4D700F07E78 /* TwitterParseTests */ = {
 			isa = PBXGroup;
 			children = (
 				81113A721A8FB4D700F07E78 /* TwitterBEPIDTests.m */,
 				81113A701A8FB4D700F07E78 /* Supporting Files */,
 			);
+			name = TwitterParseTests;
 			path = TwitterBEPIDTests;
 			sourceTree = "<group>";
 		};
@@ -355,9 +357,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		81113A4F1A8FB4D700F07E78 /* TwitterBEPID */ = {
+		81113A4F1A8FB4D700F07E78 /* TwitterParse */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 81113A761A8FB4D700F07E78 /* Build configuration list for PBXNativeTarget "TwitterBEPID" */;
+			buildConfigurationList = 81113A761A8FB4D700F07E78 /* Build configuration list for PBXNativeTarget "TwitterParse" */;
 			buildPhases = (
 				81113A4C1A8FB4D700F07E78 /* Sources */,
 				81113A4D1A8FB4D700F07E78 /* Frameworks */,
@@ -367,14 +369,14 @@
 			);
 			dependencies = (
 			);
-			name = TwitterBEPID;
+			name = TwitterParse;
 			productName = TwitterBEPID;
-			productReference = 81113A501A8FB4D700F07E78 /* TwitterBEPID.app */;
+			productReference = 81113A501A8FB4D700F07E78 /* TwitterParse.app */;
 			productType = "com.apple.product-type.application";
 		};
-		81113A6B1A8FB4D700F07E78 /* TwitterBEPIDTests */ = {
+		81113A6B1A8FB4D700F07E78 /* TwitterParseTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 81113A791A8FB4D700F07E78 /* Build configuration list for PBXNativeTarget "TwitterBEPIDTests" */;
+			buildConfigurationList = 81113A791A8FB4D700F07E78 /* Build configuration list for PBXNativeTarget "TwitterParseTests" */;
 			buildPhases = (
 				81113A681A8FB4D700F07E78 /* Sources */,
 				81113A691A8FB4D700F07E78 /* Frameworks */,
@@ -385,9 +387,9 @@
 			dependencies = (
 				81113A6E1A8FB4D700F07E78 /* PBXTargetDependency */,
 			);
-			name = TwitterBEPIDTests;
+			name = TwitterParseTests;
 			productName = TwitterBEPIDTests;
-			productReference = 81113A6C1A8FB4D700F07E78 /* TwitterBEPIDTests.xctest */;
+			productReference = 81113A6C1A8FB4D700F07E78 /* TwitterParseTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -408,7 +410,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 81113A4B1A8FB4D700F07E78 /* Build configuration list for PBXProject "TwitterBEPID" */;
+			buildConfigurationList = 81113A4B1A8FB4D700F07E78 /* Build configuration list for PBXProject "TwitterParse" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -421,8 +423,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				81113A4F1A8FB4D700F07E78 /* TwitterBEPID */,
-				81113A6B1A8FB4D700F07E78 /* TwitterBEPIDTests */,
+				81113A4F1A8FB4D700F07E78 /* TwitterParse */,
+				81113A6B1A8FB4D700F07E78 /* TwitterParseTests */,
 			);
 		};
 /* End PBXProject section */
@@ -488,7 +490,7 @@
 /* Begin PBXTargetDependency section */
 		81113A6E1A8FB4D700F07E78 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 81113A4F1A8FB4D700F07E78 /* TwitterBEPID */;
+			target = 81113A4F1A8FB4D700F07E78 /* TwitterParse */;
 			targetProxy = 81113A6D1A8FB4D700F07E78 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -607,7 +609,7 @@
 				);
 				INFOPLIST_FILE = TwitterBEPID/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = TwitterParse;
 				PROVISIONING_PROFILE = "ced17771-3d04-4a56-a9ef-01346a25022a";
 			};
 			name = Debug;
@@ -622,7 +624,7 @@
 				);
 				INFOPLIST_FILE = TwitterBEPID/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = TwitterParse;
 				PROVISIONING_PROFILE = "ced17771-3d04-4a56-a9ef-01346a25022a";
 			};
 			name = Release;
@@ -641,8 +643,8 @@
 				);
 				INFOPLIST_FILE = TwitterBEPIDTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TwitterBEPID.app/TwitterBEPID";
+				PRODUCT_NAME = TwitterParseTests;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TwitterParse.app/TwitterBEPID";
 			};
 			name = Debug;
 		};
@@ -656,15 +658,15 @@
 				);
 				INFOPLIST_FILE = TwitterBEPIDTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TwitterBEPID.app/TwitterBEPID";
+				PRODUCT_NAME = TwitterParseTests;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TwitterParse.app/TwitterBEPID";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		81113A4B1A8FB4D700F07E78 /* Build configuration list for PBXProject "TwitterBEPID" */ = {
+		81113A4B1A8FB4D700F07E78 /* Build configuration list for PBXProject "TwitterParse" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				81113A741A8FB4D700F07E78 /* Debug */,
@@ -673,7 +675,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		81113A761A8FB4D700F07E78 /* Build configuration list for PBXNativeTarget "TwitterBEPID" */ = {
+		81113A761A8FB4D700F07E78 /* Build configuration list for PBXNativeTarget "TwitterParse" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				81113A771A8FB4D700F07E78 /* Debug */,
@@ -682,7 +684,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		81113A791A8FB4D700F07E78 /* Build configuration list for PBXNativeTarget "TwitterBEPIDTests" */ = {
+		81113A791A8FB4D700F07E78 /* Build configuration list for PBXNativeTarget "TwitterParseTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				81113A7A1A8FB4D700F07E78 /* Debug */,

@@ -1,6 +1,6 @@
 //
-//  TwitterBEPIDTests.m
-//  TwitterBEPIDTests
+//  TwitterParseTests.m
+//  TwitterParseTests
 //
 //  Created by Rodrigo Andrade on 2/14/15.
 //  Copyright (c) 2015 DevMac. All rights reserved.
@@ -9,11 +9,11 @@
 #import <UIKit/UIKit.h>
 #import <XCTest/XCTest.h>
 
-@interface TwitterBEPIDTests : XCTestCase
+@interface TwitterParseTests : XCTestCase
 
 @end
 
-@implementation TwitterBEPIDTests
+@implementation TwitterParseTests
 
 - (void)setUp {
     [super setUp];
