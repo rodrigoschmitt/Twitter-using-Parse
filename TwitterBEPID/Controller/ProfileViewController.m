@@ -31,7 +31,7 @@
 
 - (void)loadProfile {
     
-    if (!self.user) {
+    if ([self.parentViewController.title isEqualToString:@"Profile"]) {
         self.user = [Util unarchiveObjectFromUserDefaultsWithKey:UD_USER_LOGGED];
         
         [self.btnMessage setHidden:YES];
