@@ -21,9 +21,11 @@
     // https://parse.com/docs/ios_guide#localdatastore/iOS
     [Parse enableLocalDatastore];
     
+    
+    // TODO: You need change ApplicationId and ClientKey with your own keys
     // Initialize Parse.
-    [Parse setApplicationId:@"1kWxTYJVNSYaXfC5zp2IwFPIy7OabOteZXLld6B2"
-                  clientKey:@"MoYHT3DYgUFOYSRTw4NwdWve7TxMwsnLhETEu2pL"];
+    [Parse setApplicationId:@"YourApplicationId"
+                  clientKey:@"YourClientKey"];
     
     // [Optional] Track statistics around application opens.
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
