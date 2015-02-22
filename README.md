@@ -1,13 +1,28 @@
+Introduction
+------------
+
 <b>Sample code for implementation examples of Twitter features using Parse.</b>
 
-Features:
+Features: <br>
 * Register
 * Follow
 * Tweets (Post's)
 * Favorites
 * Messages
+ 
+This project using this object library
+------------
 
-<b>Installation</b>
+- Multiple Storyboards
+- Circular Profile Picture
+- Camera App Using UIImagePickerController
+- UICollectionViews
+- UITableView
+- Container View
+
+
+Installation
+------------
 
 First you need create a new App on Parse.com and create this tables below:
 
@@ -27,9 +42,12 @@ description (String)<br>
 url (String)<br>
 coverImage (File)<br>
 
+Xcode Setup
+------------
+
 You need change ApplicationId and ClientKey with your own keys. Open up your AppDelegate.m and add the following to it:
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+\- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // [Optional] Power your app with Local Datastore. For more info, go to
     // https://parse.com/docs/ios_guide#localdatastore/iOS
     [Parse enableLocalDatastore];
