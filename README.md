@@ -9,6 +9,24 @@ Features:
 
 <b>Installation</b>
 
+First you need create a new App on Parse.com and create this tables below:
+
+<b>Tweets</b> (Custom class)<br>
+fromUser (Pointer\<_User\>)<br>
+message (string)<br>
+
+<b>Favorite</b><br>
+Tweet (Pointer\<Tweets\>)<br>
+fromUser (Pointer\<_User\>)<br>
+
+<b>User</b> (User class)<br>
+fullname (String)<br>
+location (String)<br>
+profileImage (File)<br>
+description (String)<br>
+url (String)<br>
+coverImage (File)<br>
+
 You need change ApplicationId and ClientKey with your own keys. Open up your AppDelegate.m and add the following to it:
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
