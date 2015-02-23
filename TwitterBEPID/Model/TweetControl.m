@@ -30,6 +30,25 @@
     }];
 }
 
+- (void)removeThisFavoriteTweet:(Tweet *)tweet fromUser:(User *)fromUser response:(void (^)(bool success))response {
+    
+    PFQuery *query = [PFQuery queryWithClassName:@"Favorite"];
+    [query whereKey:@"tweet" equalTo:[PFObject objectWithoutDataWithClassName:@"Tweets" objectId:tweet.idTweet]];
+    [query whereKey:@"fromUser" equalTo:[PFUser objectWithoutDataWithObjectId:fromUser.idUser]];
+    [query getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
+        if (object) {
+            [object deleteInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                response(succeeded);
+            }];
+        }
+        else
+        {
+            response(NO);
+        }
+    }];
+    
+}
+
 - (void)favoriteThisTweet:(Tweet *)tweet fromUser:(User *)fromUser response:(void (^)(bool success))response {
     
     PFObject *tweetObject = [PFObject objectWithClassName:@"Favorite"];
@@ -44,6 +63,61 @@
             response(NO);
         } else {
             response(YES);
+        }
+    }];
+    
+}
+
+- (void)requestFavoriteTweets:(void (^)(NSArray *tweets, NSError *error))response fromUser:(User *)fromUser {
+    
+    PFQuery *query = [PFQuery queryWithClassName:@"Favorite"];
+    [query whereKey:@"fromUser" equalTo:[PFUser objectWithoutDataWithObjectId:fromUser.idUser]];
+    
+    [query orderByDescending:@"createdAt"];
+    [query includeKey:@"tweet"];
+    [query includeKey:@"tweet.fromUser"];
+    [query includeKey:@"fromUser"];
+    
+    [query findObjectsInBackgroundWithBlock:^(NSArray *resultsTweets, NSError *error) {
+        
+        if (!resultsTweets) {
+            response(nil, error);
+        }
+        else {
+            NSMutableArray *tweets = [[NSMutableArray alloc] init];
+            
+            for (PFObject *resultTweet in resultsTweets)
+            {
+                PFObject *objectTweet = resultTweet[@"tweet"];
+                
+                Tweet *tweet = [[Tweet alloc] init];
+                tweet.idTweet = objectTweet.objectId;
+                tweet.message = [objectTweet objectForKey:@"message"];
+                
+                PFUser *pfUser = objectTweet[@"fromUser"];
+                
+                User *user = [[User alloc] init];
+                user.idUser = pfUser.objectId;
+                user.username = pfUser.username;
+                user.email = pfUser.email;
+                user.fullName = [pfUser objectForKey:@"fullName"];
+                user.about = [pfUser objectForKey:@"description"];
+                user.location = [pfUser objectForKey:@"location"];
+                user.url = [pfUser objectForKey:@"url"];
+                
+                if ([pfUser objectForKey:@"profileImage"])
+                {
+                    PFFile *pfFile = [pfUser objectForKey:@"profileImage"];
+                    user.profileImage = pfFile.url;
+                }
+                
+                tweet.user = user;
+                
+                [tweets addObject:tweet];
+                
+            }
+            
+            response(tweets, nil);
         }
     }];
     

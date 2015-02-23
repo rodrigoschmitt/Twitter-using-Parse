@@ -11,7 +11,9 @@
 #import "Common.h"
 #import "Util.h"
 
-@interface ProfileViewController ()
+@interface ProfileViewController () {
+    TimelineViewController *controller;
+}
 
 @end
 
@@ -31,7 +33,11 @@
 
 - (void)loadProfile {
     
-    if ([self.parentViewController.title isEqualToString:@"Profile"]) {
+    if ([self.parentViewController.title isEqualToString:@"Users"]) {
+        [self.btnMessage setHidden:NO];
+        [self.btnFollow setHidden:NO];
+        [self.btnLogout setHidden:YES];
+    } else {
         self.user = [Util unarchiveObjectFromUserDefaultsWithKey:UD_USER_LOGGED];
         
         [self.btnMessage setHidden:YES];
@@ -39,10 +45,6 @@
         [self.btnLogout setHidden:NO];
         
         [self.navigationController.toolbar setNeedsDisplay];
-    } else {
-        [self.btnMessage setHidden:NO];
-        [self.btnFollow setHidden:NO];
-        [self.btnLogout setHidden:YES];
     }
     
     self.title = self.user.username;
@@ -63,10 +65,14 @@
     [super viewWillAppear:animated];
     
     [self loadProfile];
+    
+    controller.profileViewController = YES;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.title = @"Profile";
 }
 
 - (void)didReceiveMemoryWarning {
@@ -78,7 +84,8 @@
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    TimelineViewController *controller = (TimelineViewController *)segue.destinationViewController;
+    controller = (TimelineViewController *)segue.destinationViewController;
+    controller.profileViewController = YES;
     
     if (!self.user)
         controller.user = [Util unarchiveObjectFromUserDefaultsWithKey:UD_USER_LOGGED];

@@ -29,22 +29,34 @@
     
     TweetControl *tweetControl = [[TweetControl alloc] init];
     
-    [tweetControl requestTweets:^(NSArray *tweets, NSError *error) {
+    if (!self.profileViewController && ![self.parentViewController.title isEqualToString:@"Timeline"]) {
+        self.user = [Util unarchiveObjectFromUserDefaultsWithKey:UD_USER_LOGGED];
         
-        arrayTweets = tweets;
-        [self performSelectorOnMainThread:@selector(updateDataWithTweets) withObject:nil waitUntilDone:NO];
+        [tweetControl requestFavoriteTweets:^(NSArray *tweets, NSError *error) {
+            
+            arrayTweets = tweets;
+            [self performSelectorOnMainThread:@selector(updateDataWithTweets:) withObject:refreshControl waitUntilDone:NO];
+            
+        } fromUser:self.user];
         
-    } fromUser:self.user];
+        
+    } else {
     
-    if (refreshControl)
-        [refreshControl endRefreshing];
+        [tweetControl requestTweets:^(NSArray *tweets, NSError *error) {
+            
+            arrayTweets = tweets;
+            [self performSelectorOnMainThread:@selector(updateDataWithTweets:) withObject:refreshControl waitUntilDone:NO];
+            
+        } fromUser:self.user];
+        
+    }
 }
 
 - (void)favoriteThisTweet:(Tweet *)tweet {
     
     TweetControl *tweetControl = [[TweetControl alloc] init];
     
-    [tweetControl favoriteThisTweet:[arrayTweets objectAtIndex:0] fromUser:[Util unarchiveObjectFromUserDefaultsWithKey:UD_USER_LOGGED] response:^(bool success) {
+    [tweetControl favoriteThisTweet:tweet fromUser:[Util unarchiveObjectFromUserDefaultsWithKey:UD_USER_LOGGED] response:^(bool success) {
         
         if (success)
         {
@@ -54,12 +66,25 @@
     
 }
 
-- (void)updateDataWithTweets {
+- (void)removeThisFavoriteTweet:(Tweet *)tweet {
+    
+    TweetControl *tweetControl = [[TweetControl alloc] init];
+    
+    [tweetControl removeThisFavoriteTweet:tweet fromUser:[Util unarchiveObjectFromUserDefaultsWithKey:UD_USER_LOGGED] response:^(bool success) {
+        
+        if (success)
+        {
+            [self performSelectorOnMainThread:@selector(loadData:) withObject:nil waitUntilDone:NO];
+        }
+    }];
+    
+}
+
+- (void)updateDataWithTweets:(UIRefreshControl *)refreshControl {
+    if (refreshControl)
+        [refreshControl endRefreshing];
     
     [self.tableView reloadData];
-    
-//    [self favoriteThisTweet:nil];
-    
 }
 
 #pragma mark - Methods of TweetViewController (Delegate)
@@ -80,14 +105,6 @@
         UIViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"login"];
         [self presentViewController:vc animated:YES completion:nil];
     }
-//    else
-//    {
-//        User *user = [Util unarchiveObjectFromUserDefaultsWithKey:UD_USER_LOGGED];
-//        NSLog(@"Full Name: %@", user.fullName);
-//    }
-//    
-//    [self loadData];
-    
 }
 
 - (void)viewDidLoad {
@@ -133,6 +150,36 @@
     return tweetCell;
 }
 
+- (NSArray *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    UITableViewRowAction *deleteAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDefault title:@"Delete" handler:^(UITableViewRowAction *action, NSIndexPath *indexPath){
+        [self.tableView setEditing:NO];
+        
+        Tweet *tweet = [arrayTweets objectAtIndex:indexPath.row];
+        
+        [self removeThisFavoriteTweet:tweet];
+    }];
+    deleteAction.backgroundColor = [UIColor redColor];
+    
+    UITableViewRowAction *saveAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDefault title:@"Favorite" handler:^(UITableViewRowAction *action, NSIndexPath *indexPath){
+        [self.tableView setEditing:NO];
+        
+        Tweet *tweet = [arrayTweets objectAtIndex:indexPath.row];
+        
+        [self favoriteThisTweet:tweet];
+    }];
+    saveAction.backgroundColor = [UIColor blueColor];
+    
+    if ([self.parentViewController.title isEqualToString:@"Favorites"])
+        return @[deleteAction];
+    else
+        return @[saveAction];
+}
+
+//- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+//    // Intentionally blank. Required to use UITableViewRowActions
+//    NSLog(@"aqui");
+//}
 
 /*
 // Override to support conditional editing of the table view.
@@ -140,9 +187,9 @@
     // Return NO if you do not want the specified item to be editable.
     return YES;
 }
-*/
+ */
 
-/*
+
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
@@ -152,7 +199,6 @@
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
     }   
 }
-*/
 
 /*
 // Override to support rearranging the table view.

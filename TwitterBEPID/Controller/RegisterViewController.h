@@ -21,9 +21,9 @@
 @property (weak, nonatomic) IBOutlet UITextField *txtAbout;
 @property (weak, nonatomic) IBOutlet UITextField *txtUrl;
 
+- (IBAction)profileImageButtonPressed:(UIButton *)sender;
 - (IBAction)nextButtonPressed:(UIButton *)sender;
 - (IBAction)finishButtonPressed:(UIButton *)sender;
-- (IBAction)profileImageButtonPressed:(UIButton *)sender;
-
+- (IBAction)cancelButtonPressed:(UIButton *)sender;
 
 @end

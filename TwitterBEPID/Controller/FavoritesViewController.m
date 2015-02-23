@@ -10,4 +10,10 @@
 
 @implementation FavoritesViewController
 
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    
+    self.title = @"Favorites";
+}
+
 @end

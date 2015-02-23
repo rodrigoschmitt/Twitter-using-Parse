@@ -14,6 +14,8 @@
 
 - (void)saveTweetWithMessage:(NSString *)message fromUser:(User *)user response:(void (^)(bool success))response;
 - (void)favoriteThisTweet:(Tweet *)tweet fromUser:(User *)fromUser response:(void (^)(bool success))response;
+- (void)removeThisFavoriteTweet:(Tweet *)tweet fromUser:(User *)fromUser response:(void (^)(bool success))response;
+- (void)requestFavoriteTweets:(void (^)(NSArray *tweets, NSError *error))response fromUser:(User *)fromUser;
 - (void)requestTweets:(void (^)(NSArray *tweets, NSError *error))response fromUser:(User *)fromUser;
 
 @end

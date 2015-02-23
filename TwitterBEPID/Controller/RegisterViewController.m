@@ -22,6 +22,15 @@
 
 #pragma mark - Methods of UIButton (IBAction)
 
+- (IBAction)profileImageButtonPressed:(UIButton *)sender {
+    UIActionSheet *actionButtonActionSheet = [[UIActionSheet alloc] initWithTitle:nil
+                                                                         delegate:self
+                                                                cancelButtonTitle:@"Cancel"
+                                                           destructiveButtonTitle:nil
+                                                                otherButtonTitles:@"Take photo", @"Choose existing", nil];
+    [actionButtonActionSheet showInView:self.view];
+}
+
 - (IBAction)nextButtonPressed:(UIButton *)sender {
     UIView *subView = [_scrollView viewWithTag:sender.tag + 1];
     
@@ -37,13 +46,8 @@
     
 }
 
-- (IBAction)profileImageButtonPressed:(UIButton *)sender {
-    UIActionSheet *actionButtonActionSheet = [[UIActionSheet alloc] initWithTitle:nil
-                                                                         delegate:self
-                                                                cancelButtonTitle:@"Cancel"
-                                                           destructiveButtonTitle:nil
-                                                                otherButtonTitles:@"Take photo", @"Choose existing", nil];
-    [actionButtonActionSheet showInView:self.view];
+- (IBAction)cancelButtonPressed:(UIButton *)sender {
+     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 #pragma mark - Methods Signup user

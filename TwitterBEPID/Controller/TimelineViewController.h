@@ -13,5 +13,6 @@
 @interface TimelineViewController : UITableViewController <TweetViewControllerDelegate>
 
 @property (strong) User *user;
+@property BOOL profileViewController;
 
 @end
