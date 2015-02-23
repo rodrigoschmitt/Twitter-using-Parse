@@ -1,7 +1,7 @@
 Introduction
 ------------
 
-<b>Sample code for implementation examples of Twitter features using Parse.</b>
+<b>Sample code for implementation examples like Twitter features using Parse.</b>
 
 Features: <br>
 * Register
@@ -10,7 +10,7 @@ Features: <br>
 * Favorites
 * Messages
  
-This project using this object library
+This project uses this object library
 ------------
 
 - Multiple Storyboards
