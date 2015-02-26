@@ -76,7 +76,6 @@
     [query orderByDescending:@"createdAt"];
     [query includeKey:@"tweet"];
     [query includeKey:@"tweet.fromUser"];
-    [query includeKey:@"fromUser"];
     
     [query findObjectsInBackgroundWithBlock:^(NSArray *resultsTweets, NSError *error) {
         
