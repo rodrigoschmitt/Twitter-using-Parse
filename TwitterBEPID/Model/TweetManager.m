@@ -6,11 +6,11 @@
 //  Copyright (c) 2015 DevMac. All rights reserved.
 //
 
-#import "TweetControl.h"
+#import "TweetManager.h"
 #import "Common.h"
 #import <Parse/Parse.h>
 
-@implementation TweetControl
+@implementation TweetManager
 
 - (void)saveTweetWithMessage:(NSString *)message fromUser:(User *)fromUser response:(void (^)(bool success))response {
     

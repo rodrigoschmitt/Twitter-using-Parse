@@ -8,7 +8,7 @@
 
 #import "RegisterViewController.h"
 #import "User.h"
-#import "UserControl.h"
+#import "UserManager.h"
 
 #define kOFFSET_FOR_KEYBOARD 200.0
 
@@ -62,7 +62,7 @@
     user.url = self.txtUrl.text;
     user.password = self.txtPassword.text;
     
-    UserControl *userControl = [[UserControl alloc] init];
+    UserManager *userControl = [[UserManager alloc] init];
     [userControl signupUser:user profileImage:self.imgProfile.image response:^(BOOL success, NSError *error) {
         
         if (success) {

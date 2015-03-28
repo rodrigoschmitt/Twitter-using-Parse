@@ -9,7 +9,7 @@
 #import "UsersCollectionViewController.h"
 #import "Common.h"
 #import "Util.h"
-#import "UserControl.h"
+#import "UserManager.h"
 #import "User.h"
 #import "UserCollectionViewCell.h"
 #import "ProfileViewController.h"
@@ -31,7 +31,7 @@ static NSString * const reuseIdentifier = @"Cell";
     
     User *user = [Util unarchiveObjectFromUserDefaultsWithKey:UD_USER_LOGGED];
     
-    [[UserControl singleton] requestUsers:^(NSArray *users, NSError *error) {
+    [[UserManager singleton] requestUsers:^(NSArray *users, NSError *error) {
         
         if (users) {
             arrayUsers = users;

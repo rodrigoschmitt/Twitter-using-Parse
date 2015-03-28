@@ -8,7 +8,7 @@
 
 #import "TweetViewController.h"
 #import "Common.h"
-#import "TweetControl.h"
+#import "TweetManager.h"
 #import "Util.h"
 #import "User.h"
 
@@ -46,7 +46,7 @@
 
 - (void)tweetMessage:(NSString *)message {
     
-    TweetControl *tweetControl = [[TweetControl alloc] init];
+    TweetManager *tweetControl = [[TweetManager alloc] init];
     
     [tweetControl saveTweetWithMessage:message fromUser:[Util unarchiveObjectFromUserDefaultsWithKey:UD_USER_LOGGED] response:^(bool success) {
         

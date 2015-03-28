@@ -12,7 +12,7 @@
 #import "Common.h"
 #import "Util.h"
 #import "User.h"
-#import "TweetControl.h"
+#import "TweetManager.h"
 #import "Tweet.h"
 
 @interface TimelineViewController () {
@@ -27,7 +27,7 @@
 
 - (void)loadData:(UIRefreshControl *)refreshControl {
     
-    TweetControl *tweetControl = [[TweetControl alloc] init];
+    TweetManager *tweetControl = [[TweetManager alloc] init];
     
     if (!self.profileViewController && ![self.parentViewController.title isEqualToString:@"Timeline"]) {
         self.user = [Util unarchiveObjectFromUserDefaultsWithKey:UD_USER_LOGGED];
@@ -54,7 +54,7 @@
 
 - (void)favoriteThisTweet:(Tweet *)tweet {
     
-    TweetControl *tweetControl = [[TweetControl alloc] init];
+    TweetManager *tweetControl = [[TweetManager alloc] init];
     
     [tweetControl favoriteThisTweet:tweet fromUser:[Util unarchiveObjectFromUserDefaultsWithKey:UD_USER_LOGGED] response:^(bool success) {
         
@@ -68,7 +68,7 @@
 
 - (void)removeThisFavoriteTweet:(Tweet *)tweet {
     
-    TweetControl *tweetControl = [[TweetControl alloc] init];
+    TweetManager *tweetControl = [[TweetManager alloc] init];
     
     [tweetControl removeThisFavoriteTweet:tweet fromUser:[Util unarchiveObjectFromUserDefaultsWithKey:UD_USER_LOGGED] response:^(bool success) {
         

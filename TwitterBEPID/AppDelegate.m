@@ -22,8 +22,8 @@
     [Parse enableLocalDatastore];
     
     
-    // TODO: You need change ApplicationId and ClientKey with your own keys
     // Initialize Parse.
+    #warning You need change ApplicationId and ClientKey with your own keys
     [Parse setApplicationId:@"YourApplicationId"
                   clientKey:@"YourClientKey"];
     
